@@ -31,19 +31,19 @@ public class NewCharacter2DController : MonoBehaviour
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
-            animator.Play("player_run2");
+            animator.Play("Player_run1");
             spriteRenderer.flipX = false;
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
-            animator.Play("player_run2");
+            animator.Play("Player_run1");
             spriteRenderer.flipX = true;
 
         }
         else
         {
-            animator.Play("player_idle2");
+            animator.Play("Player_Idle1");
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
 
