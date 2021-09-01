@@ -704,3 +704,16 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 934.194480 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bd1d6ebd1afbbe11edcc42e2cf4da26') in 0.031533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.113016 seconds.
+  path: Assets/Scenes/Timeline.playable
+  artifactKey: Guid(c1df6804edb8f5141bfd16f3517bbc7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Timeline.playable using Guid(c1df6804edb8f5141bfd16f3517bbc7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '475e42a64a9c959ef42edff5ca2fcd70') in 0.013015 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
