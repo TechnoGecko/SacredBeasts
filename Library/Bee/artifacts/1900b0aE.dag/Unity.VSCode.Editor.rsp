@@ -316,13 +316,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/ProjectGeneration/AssemblyNameProvider.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/ProjectGeneration/FileIO.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/ProjectGeneration/GUIDGenerator.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/ProjectGeneration/ProjectGeneration.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/ProjectGeneration/ProjectGenerationFlag.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/VSCodeDiscovery.cs"
-"Library/PackageCache/com.unity.ide.vscode@1.2.3/Editor/VSCodeScriptEditor.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/AssemblyNameProvider.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/FileIO.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/GUIDGenerator.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/ProjectGeneration.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/ProjectGenerationFlag.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/ProjectGeneration/StringUtils.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/VSCodeDiscovery.cs"
+"Library/PackageCache/com.unity.ide.vscode@1.2.4/Editor/VSCodeScriptEditor.cs"
 -langversion:8.0
 
 /deterministic

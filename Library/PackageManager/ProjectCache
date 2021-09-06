@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637658873604545250
-    m_Hash: 1008458164
+      ticks: 637664000829315603
+    m_Hash: 767239477
   m_LockFileStatus:
     m_FilePath: C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637658873604715253
-    m_Hash: 2148076892
+      ticks: 637664000829475597
+    m_Hash: 2184606082
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -108,6 +108,7 @@ m_ResolvedPackages:
     - 6.0.5
     - 7.0.0-pre.2
     - 7.0.0-pre.3
+    - 7.0.0
     compatible:
     - 6.0.4
     - 6.0.5
@@ -307,6 +308,7 @@ m_ResolvedPackages:
     - 6.0.0-pre.2
     - 6.0.0-pre.3
     - 6.0.0-pre.4
+    - 6.0.0
     compatible:
     - 5.0.4
     verified: 5.0.4
@@ -496,6 +498,7 @@ m_ResolvedPackages:
     - 6.0.1
     - 7.0.0-pre.2
     - 7.0.0-pre.3
+    - 7.0.0
     compatible:
     - 6.0.1
     verified: 6.0.1
@@ -1021,12 +1024,12 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 3.0.7
     nextVersion: 
-- packageId: com.unity.ide.visualstudio@2.0.9
+- packageId: com.unity.ide.visualstudio@2.0.11
   testable: 0
   isDirectDependency: 1
-  version: 2.0.9
+  version: 2.0.11
   source: 1
-  resolvedPath: C:\Users\Blast Bleat\Desktop\Coding\MicrobialNightmare\Library\PackageCache\com.unity.ide.visualstudio@2.0.9
+  resolvedPath: C:\Users\Blast Bleat\Desktop\Coding\MicrobialNightmare\Library\PackageCache\com.unity.ide.visualstudio@2.0.11
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -1087,23 +1090,23 @@ m_ResolvedPackages:
   entitlements:
     isAllowed: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637580705480000000
+  datePublishedTicks: 637613656180000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-    revision: c7cd4c6319806423b3d918b3e9599244e3993d41
+    revision: 680e06d94ffca728223ae2cb14bb919cd354e2c1
     path: 
   unityLifecycle:
     version: 2.0.9
     nextVersion: 
-- packageId: com.unity.ide.vscode@1.2.3
+- packageId: com.unity.ide.vscode@1.2.4
   testable: 0
   isDirectDependency: 1
-  version: 1.2.3
+  version: 1.2.4
   source: 1
-  resolvedPath: C:\Users\Blast Bleat\Desktop\Coding\MicrobialNightmare\Library\PackageCache\com.unity.ide.vscode@1.2.3
+  resolvedPath: C:\Users\Blast Bleat\Desktop\Coding\MicrobialNightmare\Library\PackageCache\com.unity.ide.vscode@1.2.4
   assetPath: Packages/com.unity.ide.vscode
   name: com.unity.ide.vscode
   displayName: Visual Studio Code Editor
@@ -1131,9 +1134,11 @@ m_ResolvedPackages:
     - 1.2.1
     - 1.2.2
     - 1.2.3
+    - 1.2.4
     compatible:
     - 1.2.3
-    verified: 1.2.3
+    - 1.2.4
+    verified: 1.2.4
   dependencies: []
   resolvedDependencies: []
   keywords: []
@@ -1149,13 +1154,13 @@ m_ResolvedPackages:
   entitlements:
     isAllowed: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637394922300000000
+  datePublishedTicks: 637660806170000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
-    url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
-    revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
+    url: git+https://github.com/Unity-Technologies/com.unity.ide.vscode.git
+    revision: 1f4f605d5c988cb610c372b5c5216c46cc8f5d30
     path: 
   unityLifecycle:
     version: 1.2.3
@@ -3799,6 +3804,7 @@ m_ResolvedPackages:
     - 6.0.0-pre.2
     - 6.0.0-pre.3
     - 6.0.0-pre.4
+    - 6.0.0
     compatible:
     - 5.0.0
     verified: 5.0.0
@@ -3885,9 +3891,11 @@ m_ResolvedPackages:
     - 5.0.0-pre.1
     - 5.0.0-pre.2
     - 5.0.0
+    - 5.0.1
     compatible:
     - 5.0.0
-    verified: 5.0.0
+    - 5.0.1
+    verified: 5.0.1
   dependencies: []
   resolvedDependencies: []
   keywords:

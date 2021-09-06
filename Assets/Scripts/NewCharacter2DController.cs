@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class NewCharacter2DController : MonoBehaviour
 {
-    [SerializeField] int runSpeed = 30;
-    [SerializeField] int jumpForce = 45;
+
+    [SerializeField] private LayerMask platformLayerMask;
+    
+
+    [SerializeField] float runSpeed = 50f;
+    [SerializeField] float jumpForce = 45f;
+    public Vector2 direction;
+    private bool facingRight = true;
+
+    public float maxSpeed = 50f;
+    public float linearDrag = 8.5f;
 
     Animator animator;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
+    BoxCollider2D boxCollider;
+
+
+
+
+
+    private string PLAYER_RUN = "Player_run1";
+    private string PLAYER_IDLE = "Player_Idle1";
+    private string PLAYER_JUMP = "Player_jump1";
+
 
 
     // Start is called before the first frame update
@@ -18,39 +37,84 @@ public class NewCharacter2DController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+       
+
     }
 
+    
+ 
     private void FixedUpdate()
     {
-        if (Input.GetKey("d") || Input.GetKey("right"))
+        MoveCharacter(direction.x);
+        ModifyPhysics();
+        
+       
+    }
+    void MoveCharacter(float horizontal)
+    {
+        rb2d.AddForce(Vector2.right * horizontal * runSpeed);
+        
+        animator.SetFloat("horizontal", Mathf.Abs(rb2d.velocity.x));
+        
+        if((horizontal > 0 && !facingRight) || (horizontal < 0 && facingRight))
         {
-            rb2d.velocity = new Vector2(runSpeed, rb2d.velocity.y);
-            animator.Play("Player_run1");
-            spriteRenderer.flipX = false;
+            Flip();
         }
-        else if (Input.GetKey("a") || Input.GetKey("left"))
+        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
         {
-            rb2d.velocity = new Vector2(-runSpeed, rb2d.velocity.y);
-            animator.Play("Player_run1");
-            spriteRenderer.flipX = true;
+            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+        }
 
-        }
-        else
-        {
-            animator.Play("Player_Idle1");
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-        }
+    }
 
-        if (Input.GetKey("space"))
+    void ModifyPhysics()
+    {
+        bool changingDirections = (direction.x > 0 && rb2d.velocity.x < 0) || (direction.x < 0 && rb2d.velocity.x > 0);
+
+
+        if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-           
+            rb2d.drag = linearDrag;
+        } else
+        {
+            rb2d.drag = 0f; 
         }
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+    }
+
+
+    private bool IsGrounded()
+    {
+        float extraHeightText = 5f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraHeightText, platformLayerMask );
+        Color rayColor;
+        if (raycastHit.collider != null)
+        {
+            rayColor = Color.green;
+        } else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(boxCollider.bounds.center, Vector2.down * (boxCollider.bounds.extents.y + extraHeightText), rayColor);
+        Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
+    }   
+
+
+     
+
+
+    
 }
