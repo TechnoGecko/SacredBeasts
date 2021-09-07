@@ -12,7 +12,7 @@ public class NewCharacter2DController : MonoBehaviour
     private bool facingRight = true;
 
     [Header("Jumping")]
-    [SerializeField] float jumpForce = 40f;
+    [SerializeField] float jumpForce = 50f;
     [SerializeField] float bootyWeight = 14f;
     //[SerializeField] float jumpHeight = 50f;
     public bool isGrounded = true;
@@ -50,7 +50,7 @@ public class NewCharacter2DController : MonoBehaviour
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
         }
@@ -112,19 +112,30 @@ public class NewCharacter2DController : MonoBehaviour
             {
                 rb2d.drag = 0f;
             }
-            rb2d.gravityScale = 0;
+            rb2d.gravityScale = 0; 
+        } else
+        {
+            rb2d.gravityScale = defaultGravity;
+            rb2d.drag = linearDrag * 0.15f;
+            if(rb2d.velocity.y < 0)
+            {
+                rb2d.gravityScale = defaultGravity * bootyWeight;
+            } else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb2d.gravityScale = defaultGravity * (bootyWeight / 2);
+            }
         }
 
-        if (rb2d.velocity.y < 0)
+        /*if ( !isGrounded && rb2d.velocity.y < 0)
         {
             rb2d.gravityScale = defaultGravity * bootyWeight;
             
             rb2d.drag = linearDrag * 0.15f;
-        } else  
+        } else if (!isGrounded)
         {
             rb2d.gravityScale = defaultGravity;
             rb2d.drag = linearDrag * 0.15f;
-        }
+        }*/
         
     }
 
