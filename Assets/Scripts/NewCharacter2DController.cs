@@ -6,22 +6,33 @@ public class NewCharacter2DController : MonoBehaviour
 { 
     [SerializeField] private LayerMask platformLayerMask;
 
+    [Header("Movement")]
     [SerializeField] float runSpeed = 95f;
-    [SerializeField] float jumpForce = 45f;
     public Vector2 direction;
     private bool facingRight = true;
 
+    [Header("Jumping")]
+    [SerializeField] float jumpForce = 40f;
+    [SerializeField] float bootyWeight = 14f;
+    //[SerializeField] float jumpHeight = 50f;
+    public bool isGrounded = true;
+    public bool hasJumped;
+    public bool isFalling = false;
+    public float horizontal;
+    public float vertical;
+
+    [Header("Physics")]
     public float maxSpeed = 50f;
     public float linearDrag = 20f;
+    public float defaultGravity = 2f;
+    public float fallSpeed;
 
     Animator animator;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
 
-    private string PLAYER_RUN = "Player_run1";
-    private string PLAYER_IDLE = "Player_Idle1";
-    private string PLAYER_JUMP = "Player_jump1";
+    
 
 
 
@@ -38,18 +49,38 @@ public class NewCharacter2DController : MonoBehaviour
     void Update()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
-       
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            Jump();
+        }
     }
 
     
  
     private void FixedUpdate()
     {
+        GroundCheck();
         MoveCharacter(direction.x);
         ModifyPhysics();
+        
+        if (hasJumped == true && rb2d.velocity.y < 0)
+        {
+            isFalling = true;
+        }
+
+        if (hasJumped == true && isGrounded == true)
+        {
+            hasJumped = false;
+        }
+
+        fallSpeed = rb2d.velocity.y;
+        
+        horizontal = rb2d.velocity.x;
+        vertical = rb2d.velocity.y;
+        
     }
+
     void MoveCharacter(float horizontal)
     {
         rb2d.AddForce(Vector2.right * horizontal * runSpeed);
@@ -71,14 +102,30 @@ public class NewCharacter2DController : MonoBehaviour
     {
         bool changingDirections = (direction.x > 0 && rb2d.velocity.x < 0) || (direction.x < 0 && rb2d.velocity.x > 0);
 
-
-        if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+        if (isGrounded)
         {
-            rb2d.drag = linearDrag;
-        } else
-        {
-            rb2d.drag = 0f; 
+            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            {
+                rb2d.drag = linearDrag;
+            }
+            else
+            {
+                rb2d.drag = 0f;
+            }
+            rb2d.gravityScale = 0;
         }
+
+        if (rb2d.velocity.y < 0)
+        {
+            rb2d.gravityScale = defaultGravity * bootyWeight;
+            
+            rb2d.drag = linearDrag * 0.15f;
+        } else  
+        {
+            rb2d.gravityScale = defaultGravity;
+            rb2d.drag = linearDrag * 0.15f;
+        }
+        
     }
 
     void Flip()
@@ -88,10 +135,10 @@ public class NewCharacter2DController : MonoBehaviour
     }
 
 
-    private bool IsGrounded()
+    private void GroundCheck()
     {
-        float extraHeightText = 5f;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraHeightText, platformLayerMask );
+        float extraHeightText = 1f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size , 0f, Vector2.down, extraHeightText, platformLayerMask );
         Color rayColor;
         if (raycastHit.collider != null)
         {
@@ -101,12 +148,26 @@ public class NewCharacter2DController : MonoBehaviour
             rayColor = Color.red;
         }
         Debug.DrawRay(boxCollider.bounds.center, Vector2.down * (boxCollider.bounds.extents.y + extraHeightText), rayColor);
-        Debug.Log(raycastHit.collider);
-        return raycastHit.collider != null;
+        
+        isGrounded = raycastHit.collider ? true : false;
+        isFalling = raycastHit.collider ? true : false;
+       
+        
     }   
 
-
+    private void Jump()
+    {
+       
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            hasJumped = true;
+        Debug.Log("has jumped");
+        animator.SetFloat("vertical", vertical);
+        
+       
+    }
      
+    
 
 
     

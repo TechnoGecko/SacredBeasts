@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2944955161764862646}
   - component: {fileID: 2944955161764862644}
+  - component: {fileID: 4921043832583328783}
   - component: {fileID: 2944955161764862645}
   - component: {fileID: 2944955161764862651}
   - component: {fileID: 2944955161764862649}
@@ -112,9 +113,31 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  runSpeed: 33.65
-  jumpForce: 45
+  runSpeed: 95
   direction: {x: 0, y: 0}
+  jumpForce: 45
+  bootyWeight: 18
+  isGrounded: 1
+  hasJumped: 0
+  isFalling: 0
+  horizontal: 0
+  vertical: 0
+  maxSpeed: 50
+  linearDrag: 20
+  defaultGravity: 5
+  fallSpeed: 0
+--- !u!114 &4921043832583328783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944955161764862648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f3f267d498d6341a0f63750754093c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2944955161764862645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -206,7 +229,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6128015727467498136
 BoxCollider2D:
   m_ObjectHideFlags: 0
