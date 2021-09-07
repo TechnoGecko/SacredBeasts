@@ -3,27 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewCharacter2DController : MonoBehaviour
-{
-
+{ 
     [SerializeField] private LayerMask platformLayerMask;
-    
 
-    [SerializeField] float runSpeed = 50f;
+    [SerializeField] float runSpeed = 95f;
     [SerializeField] float jumpForce = 45f;
     public Vector2 direction;
     private bool facingRight = true;
 
     public float maxSpeed = 50f;
-    public float linearDrag = 8.5f;
+    public float linearDrag = 20f;
 
     Animator animator;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
-
-
-
-
 
     private string PLAYER_RUN = "Player_run1";
     private string PLAYER_IDLE = "Player_Idle1";
@@ -44,6 +38,7 @@ public class NewCharacter2DController : MonoBehaviour
     void Update()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        
        
 
     }
@@ -54,8 +49,6 @@ public class NewCharacter2DController : MonoBehaviour
     {
         MoveCharacter(direction.x);
         ModifyPhysics();
-        
-       
     }
     void MoveCharacter(float horizontal)
     {
