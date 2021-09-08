@@ -55,8 +55,8 @@ MonoBehaviour:
     m_Bits: 8
   runSpeed: 95
   direction: {x: 0, y: 0}
-  jumpForce: 50
-  bootyWeight: 14
+  jumpForce: 95
+  bootyWeight: 10
   isGrounded: 1
   hasJumped: 0
   isFalling: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47598389d88a10f47ac8e343121288b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skullCount: {fileID: 0}
 --- !u!212 &6962974079676504757
 SpriteRenderer:
   m_ObjectHideFlags: 0
