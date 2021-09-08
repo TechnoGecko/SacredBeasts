@@ -10,16 +10,18 @@ public class NewCharacter2DController : MonoBehaviour
     [SerializeField] float runSpeed = 95f;
     public Vector2 direction;
     private bool facingRight = true;
+    private float jumpTimer;
 
     [Header("Jumping")]
-    [SerializeField] float jumpForce = 50f;
-    [SerializeField] float bootyWeight = 14f;
+    [SerializeField] float jumpForce = 95f;
+    [SerializeField] float bootyWeight = 10f;
     //[SerializeField] float jumpHeight = 50f;
     public bool isGrounded = true;
     public bool hasJumped;
     public bool isFalling = false;
     public float horizontal;
     public float vertical;
+    public float jumpDelay = 0.25f;
 
     [Header("Physics")]
     public float maxSpeed = 50f;
@@ -50,9 +52,9 @@ public class NewCharacter2DController : MonoBehaviour
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump"))
         {
-            Jump();
+            jumpTimer = Time.time + jumpDelay;
         }
     }
 
@@ -63,6 +65,10 @@ public class NewCharacter2DController : MonoBehaviour
         GroundCheck();
         MoveCharacter(direction.x);
         ModifyPhysics();
+        if(jumpTimer > Time.time && isGrounded)
+        {
+            Jump();
+        }
         
         if (hasJumped == true && rb2d.velocity.y < 0)
         {
@@ -169,13 +175,13 @@ public class NewCharacter2DController : MonoBehaviour
     private void Jump()
     {
        
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            hasJumped = true;
-        Debug.Log("has jumped");
-        animator.SetFloat("vertical", vertical);
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+        rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        hasJumped = true;
+        jumpTimer = 0;
         
-       
+        
+        animator.SetFloat("vertical", vertical);
     }
      
     

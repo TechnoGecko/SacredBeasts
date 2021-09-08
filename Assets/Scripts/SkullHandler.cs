@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SkullHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float skulls = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.gameObject.CompareTag("Skull"))
+        {
+            skulls++;
+            Destroy(other.gameObject);
+            Debug.Log("Got'im");
+            
+        }
     }
 }

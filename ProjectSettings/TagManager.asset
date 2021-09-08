@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Ground
+  - Skull
   layers:
   - Default
   - TransparentFX
