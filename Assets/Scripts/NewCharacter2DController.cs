@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NewCharacter2DController : MonoBehaviour
 { 
-    [SerializeField] private LayerMask platformLayerMask;
-
     [Header("Movement")]
     [SerializeField] float runSpeed = 95f;
     public Vector2 direction;
@@ -13,15 +11,32 @@ public class NewCharacter2DController : MonoBehaviour
     private float jumpTimer;
 
     [Header("Jumping")]
+    [SerializeField] private LayerMask platformLayerMask;
     [SerializeField] float jumpForce = 95f;
     [SerializeField] float bootyWeight = 10f;
     //[SerializeField] float jumpHeight = 50f;
     public bool isGrounded = true;
-    public bool hasJumped;
+    public bool canJump;
     public bool isFalling = false;
     public float horizontal;
     public float vertical;
     public float jumpDelay = 0.25f;
+
+    [Header("WallSlide")]
+    [SerializeField] float wallSlideSpeed = -1.1f;
+    [SerializeField] private LayerMask wallLayerMask;
+    private bool isTouchingWall;
+    private bool isWallSliding;
+    private bool isStuck;
+    
+
+    [Header("Walljump")]
+    [SerializeField] float wallJumpDelay = 0.35f;
+    [SerializeField] float wallJumpForce = 18f;
+    [SerializeField] float wallJumpDirection = -1f;
+    [SerializeField] Vector2 wallJumpAngle = new Vector2(9f, 3.2f);
+    private float wallJumpTimer;
+
 
     [Header("Physics")]
     public float maxSpeed = 50f;
@@ -55,6 +70,7 @@ public class NewCharacter2DController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumpTimer = Time.time + jumpDelay;
+            wallJumpTimer = Time.time + wallJumpDelay;
         }
     }
 
@@ -63,24 +79,29 @@ public class NewCharacter2DController : MonoBehaviour
     private void FixedUpdate()
     {
         GroundCheck();
+        WallCheck();
+        WallSlide();
         MoveCharacter(direction.x);
         ModifyPhysics();
         if(jumpTimer > Time.time && isGrounded)
         {
             Jump();
         }
+        else if(wallJumpTimer > Time.time && isWallSliding)
+        {
+            WallJump();
+            
+        }
         
-        if (hasJumped == true && rb2d.velocity.y < 0)
+        if (rb2d.velocity.y < 0)
         {
             isFalling = true;
         }
 
-        if (hasJumped == true && isGrounded == true)
+        if (canJump == false && isGrounded == true)
         {
-            hasJumped = false;
+            canJump = true;
         }
-
-        fallSpeed = rb2d.velocity.y;
         
         horizontal = rb2d.velocity.x;
         vertical = rb2d.velocity.y;
@@ -123,7 +144,7 @@ public class NewCharacter2DController : MonoBehaviour
         {
             rb2d.gravityScale = defaultGravity;
             rb2d.drag = linearDrag * 0.15f;
-            if(rb2d.velocity.y < 0)
+            if(rb2d.velocity.y < 0 && !isTouchingWall)
             {
                 rb2d.gravityScale = defaultGravity * bootyWeight;
             } else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
@@ -131,6 +152,9 @@ public class NewCharacter2DController : MonoBehaviour
                 rb2d.gravityScale = defaultGravity * (bootyWeight / 2);
             }
         }
+
+
+        //--Old bootyWeight logic for reference--
 
         /*if ( !isGrounded && rb2d.velocity.y < 0)
         {
@@ -167,7 +191,7 @@ public class NewCharacter2DController : MonoBehaviour
         Debug.DrawRay(boxCollider.bounds.center, Vector2.down * (boxCollider.bounds.extents.y + extraHeightText), rayColor);
         
         isGrounded = raycastHit.collider ? true : false;
-        isFalling = raycastHit.collider ? true : false;
+        
        
         
     }   
@@ -177,15 +201,80 @@ public class NewCharacter2DController : MonoBehaviour
        
         rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
         rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        hasJumped = true;
+        canJump = false;
         jumpTimer = 0;
         
         
         animator.SetFloat("vertical", vertical);
     }
-     
-    
+
+    private void WallCheck()
+    {
+        float extraLengthText = 1f;
+        RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.right, extraLengthText, wallLayerMask);
+        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.left, extraLengthText, wallLayerMask);
+        Color rayColorRight = Color.red;
+        Color rayColorLeft = Color.red;
+        if (raycastHitRight.collider != null)
+        {
+            rayColorRight = Color.blue;
+        }
+        else if (raycastHitLeft.collider != null)
+        {
+            rayColorLeft = Color.blue;
+            
+        } 
+        else
+        {
+            rayColorRight = Color.red;
+            rayColorLeft = Color.red;
+         }
+        Debug.DrawRay(boxCollider.bounds.center, Vector2.right * (boxCollider.bounds.extents.x + extraLengthText), rayColorRight);
+        Debug.DrawRay(boxCollider.bounds.center, Vector2.left * (boxCollider.bounds.extents.x + extraLengthText), rayColorLeft);
+
+        isStuck = ((raycastHitRight.collider && raycastHitLeft.collider) ? true : false);
 
 
-    
+        isTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider) ? true : false;
+        if(raycastHitRight.collider && !raycastHitLeft.collider)
+        {
+            wallJumpDirection = -1;
+        } else if(raycastHitLeft.collider && !raycastHitRight.collider)
+        {
+            wallJumpDirection = 1;
+        }
+        
+        
+
+
+    }
+
+    private void WallSlide()
+    {
+        if (isTouchingWall && !isGrounded && rb2d.velocity.y < 0)
+        {
+            isWallSliding = true;
+        } else
+        {
+            isWallSliding = false;
+        }
+
+        if (isWallSliding)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, wallSlideSpeed);
+        }
+    }
+
+    private void WallJump()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+        rb2d.AddForce(new Vector2(wallJumpForce * wallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y), ForceMode2D.Impulse);
+        
+        wallJumpTimer = 0;
+
+        Debug.Log("walljump");
+        animator.SetFloat("vertical", vertical);
+
+    }
+
 }

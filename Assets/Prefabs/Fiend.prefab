@@ -50,19 +50,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15be96669cd978408788730dc82dea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runSpeed: 95
+  direction: {x: 0, y: 0}
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  runSpeed: 95
-  direction: {x: 0, y: 0}
   jumpForce: 95
   bootyWeight: 10
   isGrounded: 1
-  hasJumped: 0
+  canJump: 0
   isFalling: 0
   horizontal: 0
   vertical: 0
   jumpDelay: 0.25
+  wallSlideSpeed: 0
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  wallJumpDelay: 0.35
+  wallJumpForce: 22.91
+  wallJumpDirection: -1
+  wallJumpAngle: {x: 0, y: 0}
   maxSpeed: 50
   linearDrag: 20
   defaultGravity: 2

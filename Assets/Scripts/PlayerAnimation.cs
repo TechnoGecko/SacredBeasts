@@ -24,7 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (controller.hasJumped)
+        if (!controller.canJump)
         {
             animator.SetBool("hasJumped", true);
         }else
