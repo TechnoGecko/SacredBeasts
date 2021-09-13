@@ -5,16 +5,17 @@ using UnityEngine;
 public class NewCharacter2DController : MonoBehaviour
 { 
     [Header("Movement")]
-    [SerializeField] float runSpeed = 95f;
+    [SerializeField] float runSpeed = 10f;
     public Vector2 direction;
     private bool facingRight = true;
     private float jumpTimer;
 
     [Header("Jumping")]
     [SerializeField] private LayerMask platformLayerMask;
-    [SerializeField] float jumpForce = 95f;
-    [SerializeField] float bootyWeight = 10f;
-    //[SerializeField] float jumpHeight = 50f;
+    [SerializeField] float jumpForce = 10.5f;
+    [SerializeField] float bootyWeight = 0.7f;
+    [SerializeField] float variableJump = 1.2f;
+    //[SerializeField] float jumpHeight = 5f;
     public bool isGrounded = true;
     public bool canJump;
     public bool isFalling = false;
@@ -27,31 +28,39 @@ public class NewCharacter2DController : MonoBehaviour
     [SerializeField] private LayerMask wallLayerMask;
     private bool isTouchingWall;
     private bool isWallSliding;
-    private bool isStuck;
+    
     
 
     [Header("Walljump")]
     [SerializeField] float wallJumpDelay = 0.35f;
-    [SerializeField] float wallJumpForce = 18f;
+    [SerializeField] float wallJumpForce = 3.2f;
     [SerializeField] float wallJumpDirection = -1f;
     [SerializeField] Vector2 wallJumpAngle = new Vector2(9f, 3.2f);
     private float wallJumpTimer;
 
 
     [Header("Physics")]
-    public float maxSpeed = 50f;
-    public float linearDrag = 20f;
-    public float defaultGravity = 2f;
-    public float fallSpeed;
+    public float maxSpeed = 5f;
+    public float linearDrag = 2.5f;
+    public float defaultGravity = 1.5f;
+    public float fallSpeed = -10f;
+
 
     Animator animator;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
 
-    
 
+    [Header("Animation handler")]
+    private string currentState;
 
+    //Animation states
+    const string PLAYER_IDLE = "Player_Idle1";
+    const string PLAYER_JUMP = "Player_jump1";
+    const string PLAYER_RUN = "Player_run1";
+    const string PLAYER_WALL = "Player_wallslide1";
+    const string PLAYER_LEDGE = "Player_ledgegrab1";
 
     // Start is called before the first frame update
     void Start()
@@ -93,15 +102,7 @@ public class NewCharacter2DController : MonoBehaviour
             
         }
         
-        if (rb2d.velocity.y < 0)
-        {
-            isFalling = true;
-        }
-
-        if (canJump == false && isGrounded == true)
-        {
-            canJump = true;
-        }
+        
         
         horizontal = rb2d.velocity.x;
         vertical = rb2d.velocity.y;
@@ -144,13 +145,18 @@ public class NewCharacter2DController : MonoBehaviour
         {
             rb2d.gravityScale = defaultGravity;
             rb2d.drag = linearDrag * 0.15f;
+            if (rb2d.velocity.y < fallSpeed)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, fallSpeed);
+            }
             if(rb2d.velocity.y < 0 && !isTouchingWall)
             {
-                rb2d.gravityScale = defaultGravity * bootyWeight;
+                rb2d.gravityScale = defaultGravity + bootyWeight;
             } else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))
             {
-                rb2d.gravityScale = defaultGravity * (bootyWeight / 2);
+                rb2d.gravityScale = defaultGravity + variableJump;
             }
+
         }
 
 
@@ -178,7 +184,7 @@ public class NewCharacter2DController : MonoBehaviour
 
     private void GroundCheck()
     {
-        float extraHeightText = 1f;
+        float extraHeightText = .1f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size , 0f, Vector2.down, extraHeightText, platformLayerMask );
         Color rayColor;
         if (raycastHit.collider != null)
@@ -191,9 +197,23 @@ public class NewCharacter2DController : MonoBehaviour
         Debug.DrawRay(boxCollider.bounds.center, Vector2.down * (boxCollider.bounds.extents.y + extraHeightText), rayColor);
         
         isGrounded = raycastHit.collider ? true : false;
-        
-       
-        
+
+        if (rb2d.velocity.y < 0 && isGrounded == false)
+        {
+            isFalling = true;
+        } else if (isGrounded == true && isFalling == true)
+        {
+            isFalling = false;
+        }
+
+        if (canJump == false && isGrounded == true)
+        {
+            canJump = true;
+            isFalling = false;
+        }
+
+
+
     }   
 
     private void Jump()
@@ -210,7 +230,7 @@ public class NewCharacter2DController : MonoBehaviour
 
     private void WallCheck()
     {
-        float extraLengthText = 1f;
+        float extraLengthText = .1f;
         RaycastHit2D raycastHitRight = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.right, extraLengthText, wallLayerMask);
         RaycastHit2D raycastHitLeft = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.left, extraLengthText, wallLayerMask);
         Color rayColorRight = Color.red;
@@ -232,9 +252,7 @@ public class NewCharacter2DController : MonoBehaviour
         Debug.DrawRay(boxCollider.bounds.center, Vector2.right * (boxCollider.bounds.extents.x + extraLengthText), rayColorRight);
         Debug.DrawRay(boxCollider.bounds.center, Vector2.left * (boxCollider.bounds.extents.x + extraLengthText), rayColorLeft);
 
-        isStuck = ((raycastHitRight.collider && raycastHitLeft.collider) ? true : false);
-
-
+        
         isTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider) ? true : false;
         if(raycastHitRight.collider && !raycastHitLeft.collider)
         {
@@ -275,6 +293,19 @@ public class NewCharacter2DController : MonoBehaviour
         Debug.Log("walljump");
         animator.SetFloat("vertical", vertical);
 
+    }
+
+    void ChangeAnimationState( string newState)
+    {
+
+        //stop the same animation from interrupting itself
+        if (currentState == newState) return;
+
+        //play the animation
+        animator.Play(newState);
+
+        //reassign the current state
+        currentState = newState;
     }
 
 }

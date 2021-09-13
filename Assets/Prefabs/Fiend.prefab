@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4782294804330606971}
   - component: {fileID: 340102782557266173}
   - component: {fileID: 8637991827380969955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fiend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2179228854332015548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.73, y: -28.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7509886848879072401}
@@ -205,18 +205,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14846802, y: 0.06646013}
+  m_Offset: {x: 0.0076738596, y: -0.040079236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 8.75}
+    oldSize: {x: 1.25, y: 1.09375}
     newSize: {x: 10, y: 8.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.030609, y: 8.61708}
+  m_Size: {x: 1.023813, y: 1.0372381}
   m_EdgeRadius: 0
 --- !u!1 &3529722118200418851
 GameObject:
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796096296761130880}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7509886848879072401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
