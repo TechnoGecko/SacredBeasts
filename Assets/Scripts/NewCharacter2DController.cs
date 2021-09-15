@@ -9,6 +9,7 @@ public class NewCharacter2DController : MonoBehaviour
     public Vector2 direction;
     private bool facingRight = true;
     private float jumpTimer;
+    
 
     [Header("Jumping")]
     [SerializeField] private LayerMask platformLayerMask;
@@ -61,6 +62,7 @@ public class NewCharacter2DController : MonoBehaviour
     const string PLAYER_RUN = "Player_run1";
     const string PLAYER_WALL = "Player_wallslide1";
     const string PLAYER_LEDGE = "Player_ledgegrab1";
+    const string PLAYER_RUN_START = "Player_run_start";
 
     // Start is called before the first frame update
     void Start()
@@ -87,23 +89,39 @@ public class NewCharacter2DController : MonoBehaviour
  
     private void FixedUpdate()
     {
+       
         GroundCheck();
         WallCheck();
         WallSlide();
-        MoveCharacter(direction.x);
+         
         ModifyPhysics();
+
+       
+
         if(jumpTimer > Time.time && isGrounded)
         {
             Jump();
+            ChangeAnimationState(PLAYER_JUMP);
         }
         else if(wallJumpTimer > Time.time && isWallSliding)
         {
             WallJump();
+            ChangeAnimationState(PLAYER_JUMP);
             
         }
-        
-        
-        
+
+        if (isGrounded) {
+            if (horizontal > -0.1f && horizontal < -0.1f)
+            {
+                ChangeAnimationState(PLAYER_IDLE);
+            }
+            else if (direction.x != 0 && (horizontal < -0.1f || horizontal > -0.1f))
+            {
+                MoveCharacter(direction.x);
+            ChangeAnimationState(PLAYER_RUN);
+            }
+        }
+
         horizontal = rb2d.velocity.x;
         vertical = rb2d.velocity.y;
         
@@ -112,6 +130,8 @@ public class NewCharacter2DController : MonoBehaviour
     void MoveCharacter(float horizontal)
     {
         rb2d.AddForce(Vector2.right * horizontal * runSpeed);
+        
+              
         
         animator.SetFloat("horizontal", Mathf.Abs(rb2d.velocity.x));
         
@@ -160,7 +180,7 @@ public class NewCharacter2DController : MonoBehaviour
         }
 
 
-        //--Old bootyWeight logic for reference--
+        //-- Old bootyWeight logic for reference --
 
         /*if ( !isGrounded && rb2d.velocity.y < 0)
         {
@@ -272,6 +292,7 @@ public class NewCharacter2DController : MonoBehaviour
         if (isTouchingWall && !isGrounded && rb2d.velocity.y < 0)
         {
             isWallSliding = true;
+            ChangeAnimationState(PLAYER_WALL);
         } else
         {
             isWallSliding = false;
@@ -295,7 +316,7 @@ public class NewCharacter2DController : MonoBehaviour
 
     }
 
-    void ChangeAnimationState( string newState)
+    void ChangeAnimationState(string newState)
     {
 
         //stop the same animation from interrupting itself
@@ -303,6 +324,8 @@ public class NewCharacter2DController : MonoBehaviour
 
         //play the animation
         animator.Play(newState);
+
+        Debug.Log("newState is" + newState);
 
         //reassign the current state
         currentState = newState;
