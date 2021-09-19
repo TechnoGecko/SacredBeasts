@@ -50,31 +50,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15be96669cd978408788730dc82dea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 95
+  runSpeed: 10
   direction: {x: 0, y: 0}
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  jumpForce: 95
-  bootyWeight: 10
+  jumpForce: 10.5
+  bootyWeight: 0.7
+  variableJump: 1.2
   isGrounded: 1
   canJump: 0
   isFalling: 0
   horizontal: 0
   vertical: 0
   jumpDelay: 0.25
-  wallSlideSpeed: 0
+  wallSlideSpeed: -1.1
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
   wallJumpDelay: 0.35
-  wallJumpForce: 22.91
+  wallJumpForce: 3.2
   wallJumpDirection: -1
-  wallJumpAngle: {x: 0, y: 0}
-  maxSpeed: 50
-  linearDrag: 20
-  defaultGravity: 2
-  fallSpeed: 0
+  wallJumpAngle: {x: 9, y: 3.2}
+  maxSpeed: 5
+  linearDrag: 2.5
+  defaultGravity: 1.5
+  fallSpeed: -10
 --- !u!114 &6054014588835899182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 8.75}
+  m_Size: {x: 1.25, y: 1.09375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -210,7 +211,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.25, y: 1.09375}
-    newSize: {x: 10, y: 8.75}
+    newSize: {x: 1.25, y: 1.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

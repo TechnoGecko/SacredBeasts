@@ -45,8 +45,8 @@ public class NewCharacter2DController : MonoBehaviour
     public float defaultGravity = 1.5f;
     public float fallSpeed = -10f;
 
-
-    Animator animator;
+    public Animation anim;
+    public Animator animator;
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
