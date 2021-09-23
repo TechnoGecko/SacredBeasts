@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,52 +53,55 @@
     <UnityVersion>2021.1.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\Float2ControllerTransitionAsset.cs" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Plugins\Animancer\Utilities\DirectionalAnimationSet.cs" />
     <Compile Include="Assets\Plugins\Animancer\HybridAnimancerComponent.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\SimpleEventReceiver.cs" />
     <Compile Include="Assets\Plugins\Animancer\NamedAnimancerComponent.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ClipTransitionSequence.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.Curve.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\Easing.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ManualMixerTransition.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\EndEventReceiver.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedInt.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\Float1ControllerTransitionAsset.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\Float3ControllerTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\DontAllowFade.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\MixerTransition.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\ReadMe.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\EndEventReceiver.cs" />
     <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\NamedAnimancerComponentEditor.cs" />
     <Compile Include="Assets\Plugins\Animancer\AnimancerComponent.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ManualMixerTransitionAsset.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ClipTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\MixerParameterTween.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedFloat.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\Attributes\Units\Units.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\ExitEvent.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\Float2ControllerTransitionAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedInt.cs" />
     <Compile Include="Assets\Plugins\Animancer\Internal\Editor\AssemblyInfo.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimancerJob.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\ReadMe.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\PlayableAssetTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\MixerTransition2DAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\ScriptableObjectEditor.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Core\SoloAnimation.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransitionAssetT.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\DirectionalAnimationSet8.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedBool.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\FixProjectDefinition.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ControllerTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\AnimancerComponentEditor.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\AnimancerSettings.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransition.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedProperty.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ClipTransitionSequence.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.Curve.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\DontAllowFade.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedFloat.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\TimeSynchronizationGroup.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\Easing.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\MixerParameterTween.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimancerJob.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransitionAsset.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\AnimationEventReceiver.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\SpriteRendererTextureSwap.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\LinearMixerTransitionAsset.cs" />
-    <Compile Include="Assets\Plugins\Animancer\Utilities\DirectionalAnimationSet.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ManualMixerTransitionAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedBool.cs" />
     <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.Delegate.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\MixerTransition2DAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\Attributes\Units\Units.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\ExitEvent.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\PlayableAssetTransitionAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\DirectionalAnimationSet8.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\FixProjectDefinition.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ControllerTransitionAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\ScriptableObjectEditor.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\AnimancerComponentEditor.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\MixerTransition.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Editor\AnimancerSettings.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedProperty.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Events\SimpleEventReceiver.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransitionAssetT.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\AnimancerTransition.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\LinearMixerTransitionAsset.cs" />
+    <Compile Include="Assets\Plugins\Animancer\Internal\Core\SoloAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Animancer\Internal\Core\Animancer.Lite.dll" />
@@ -357,6 +360,9 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="Animancer.Lite">
+      <HintPath>Assets\Plugins\Animancer\Internal\Core\Animancer.Lite.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.6.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -368,9 +374,6 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.7.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
-    </Reference>
-    <Reference Include="Animancer.Lite">
-      <HintPath>Assets\Plugins\Animancer\Internal\Core\Animancer.Lite.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Users\Blast Bleat\Desktop\Game Dev\2021.1.17f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

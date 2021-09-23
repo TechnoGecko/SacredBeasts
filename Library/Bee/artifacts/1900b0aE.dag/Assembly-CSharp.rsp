@@ -351,7 +351,7 @@
 "Assets/Scripts/AnimationController.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/FiendAttack.cs"
-"Assets/Scripts/NewCharacter2DController.cs"
+"Assets/Scripts/Player/NewCharacter2DController.cs"
 "Assets/Scripts/PlayerAnimation.cs"
 "Assets/Scripts/SkullHandler.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

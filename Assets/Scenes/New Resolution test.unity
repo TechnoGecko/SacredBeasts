@@ -633,30 +633,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &984735948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2179228854332015548, guid: 7c2a2e3ef9d41864b8ede029a491268b, type: 3}
-  m_PrefabInstance: {fileID: 1153433081}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &984735949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984735948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d59a5ae77fc2754d8f098b78bb09217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBetweenAttack: 1
-  attackPosition: {fileID: 1366410130}
-  attackRange: 0.25
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 3
 --- !u!1001 &1014587051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1219,36 +1195,6 @@ PrefabInstance:
       objectReference: {fileID: 652923370}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8049ac5154839f44909222d4ec60d2a, type: 3}
---- !u!1 &1366410129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1366410130}
-  m_Layer: 7
-  m_Name: attackPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1366410130
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366410129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0, z: 0}
-  m_LocalScale: {x: 0.5375, y: 0.8625, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1426477781}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1426477781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4420854661118747908, guid: 7c2a2e3ef9d41864b8ede029a491268b, type: 3}

@@ -295,7 +295,7 @@ public class NewCharacter2DController : MonoBehaviour
 
     }
 
-    void ChangeAnimationState( string newState)
+    /*void ChangeAnimationState( string newState)
     {
 
         //stop the same animation from interrupting itself
@@ -305,7 +305,7 @@ public class NewCharacter2DController : MonoBehaviour
         animator.Play(newState);
 
         //reassign the current state
-        currentState = newState;
-    }
+        currentState = newState;*/
+    //}
 
 }

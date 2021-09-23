@@ -323,6 +323,7 @@
 "Assets/Plugins/Animancer/Examples/02 Fine Control/01 Spider Bot/SpiderBotSimple.cs"
 "Assets/Plugins/Animancer/Examples/02 Fine Control/02 Doors/ClickToInteract.cs"
 "Assets/Plugins/Animancer/Examples/02 Fine Control/02 Doors/Door.cs"
+"Assets/Plugins/Animancer/Examples/02 Fine Control/02 Doors/DoorTutorial.cs"
 "Assets/Plugins/Animancer/Examples/02 Fine Control/04 Update Rate/DynamicUpdateRate.cs"
 "Assets/Plugins/Animancer/Examples/02 Fine Control/04 Update Rate/LowUpdateRate.cs"
 "Assets/Plugins/Animancer/Examples/03 Locomotion/01 Root Motion/RootMotion.cs"
