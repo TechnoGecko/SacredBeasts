@@ -113,8 +113,8 @@
      <Compile Include="Assets\Plugins\Animancer\Utilities\Transitions\ManualMixerTransitionAsset.cs" />
      <Compile Include="Assets\Plugins\Animancer\Internal\Editor\GUI\ParametizedAnimancerStateDrawer.cs" />
      <Compile Include="Assets\Plugins\Animancer\Utilities\Animation Jobs\AnimatedBool.cs" />
-     <Compile Include="Assets\Plugins\Animancer\Internal\Interfaces\IAnimancerComponent.cs" />
      <Compile Include="Assets\Plugins\Animancer\Internal\Editor\Animancer Tools\AnimancerToolsWindow.AnimationModifierPanel.cs" />
+     <Compile Include="Assets\Plugins\Animancer\Internal\Interfaces\IAnimancerComponent.cs" />
      <Compile Include="Assets\Plugins\Animancer\Utilities\Custom Fade\CustomFade.Delegate.cs" />
      <Compile Include="Assets\Plugins\Animancer\Internal\Core\FadeMode.cs" />
      <Compile Include="Assets\Plugins\Animancer\Internal\Collections\FastComparer.cs" />

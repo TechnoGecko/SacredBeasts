@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformerGameKit", "PlatformerGameKit.csproj", "{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{bac6907f-52fc-03d5-247b-3d3e334915be}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animancer", "Animancer.csproj", "{5fbf1433-4657-afb6-3be8-fbbf0449cef1}"
@@ -9,11 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animancer.Examples", "Anima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animancer.FSM", "Animancer.FSM.csproj", "{65681676-006b-106c-58d8-6e129a638cb4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{5e6e73fc-d959-9178-fdc8-c1afa95b3a01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bac6907f-52fc-03d5-247b-3d3e334915be}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bac6907f-52fc-03d5-247b-3d3e334915be}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5fbf1433-4657-afb6-3be8-fbbf0449cef1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -22,6 +28,8 @@ Global
 		{4641692f-80b8-133f-02a0-fd9ae17eb21e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65681676-006b-106c-58d8-6e129a638cb4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{65681676-006b-106c-58d8-6e129a638cb4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5e6e73fc-d959-9178-fdc8-c1afa95b3a01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5e6e73fc-d959-9178-fdc8-c1afa95b3a01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

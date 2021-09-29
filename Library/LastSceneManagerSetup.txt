@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/New Resolution test.unity
+- path: Assets/Scenes/Animancer FSM Test.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

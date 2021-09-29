@@ -1,18 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using Animancer;
+using Animancer.FSM;
 
-public class CharacterState : MonoBehaviour
+
+namespace Characters.States {
+public abstract class CharacterState : StateBehaviour, IOwnedState<CharacterState>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public const string MenuPrefix = Character.MenuPrefix + "States/";
+    
+    [SerializeField] private Character _Character;
 
-    // Update is called once per frame
-    void Update()
+    public Character Character => _Character;
+
+    public void SetCharacter(Character character) => _Character = character;
+    
+
+    
+    
+#if UNITY_EDITOR
+    /// <summary>[Editor-Only] Ensures that all fields have valid values and finds missing components nearby.</summary>
+    protected override void OnValidate()
     {
-        
+        base.OnValidate();
+        gameObject.GetComponentInParentOrChildren(ref _Character);
     }
+#endif
+    /************************************************************************************************************************/
+    public virtual float MovementSpeedMultiplier => 0;
+
+    public virtual bool CanTurn => MovementSpeedMultiplier != 0;
+   
+    /************************************************************************************************************************/
+    
+    public StateMachine<CharacterState> OwnerStateMachine => _Character.StateMachine;
+    
+    
+}
 }

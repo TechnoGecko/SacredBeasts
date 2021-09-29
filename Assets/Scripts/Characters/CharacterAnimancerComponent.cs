@@ -1,7 +1,11 @@
 using System;
 using Animancer;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using PlatformerGameKit;
 using UnityEngine;
+using HitData = Combat.HitData;
+using Object = System.Object;
 
 namespace Characters
 {
@@ -10,9 +14,6 @@ namespace Characters
     
     public sealed class CharacterAnimancerComponent : AnimancerComponent
     {
-        private static NewCharacter2DController _Controller;
-
-        private bool _facingRight = _Controller.facingRight;
         
         [SerializeField]
         private SpriteRenderer _Renderer;
@@ -22,17 +23,120 @@ namespace Characters
         private Character _Character;
         public Character Character => _Character;
         
-        
-        void Flip()
+        #if UNITY_EDITOR
+        private void OnValidate()
         {
-            _facingRight = !_facingRight;
-            transform.rotation = Quaternion.Euler(0, _facingRight ? 0 : 180, 0);
+            gameObject.GetComponentInParentOrChildren(ref _Renderer);
+            gameObject.GetComponentInParentOrChildren(ref _Character);
+            
+
+        }
+#endif
+        
+        #if UNITY_ASSERTIONS
+
+        private void Awake()
+        {
+            DontAllowFade.Assert(this);
+        }
+#endif
+        public bool FacingLeft
+        {
+            get => _Renderer.flipX;
+            set => _Renderer.flipX = value;
         }
 
-        private void Update()
+        public float FacingX
         {
-            throw new NotImplementedException();
+            get => _Renderer.flipX ? -1f : 1f;
+
+            set
+            {
+                if (value != 0)
+                    _Renderer.flipX = value < 0;
+            }
         }
+
+        public Vector2 Facing
+        {
+            get => new Vector2(FacingX, 0);
+
+            set => FacingX = value.x;
+        }
+
+        public void Update()
+        {
+            if (Character.StateMachine.CurrentState.CanTurn)
+                Facing = Character.MovementDirection;
+        }
+        
+
+        /// <summary>
+        /// Returns the <see cref="CharacterAnimancerComponent"/> associated with the
+        /// <see cref="AnimancerEvent.CurrentState"/>.
+        /// </summary>
+        public static CharacterAnimancerComponent GetCurrent() => Get(AnimancerEvent.CurrentState);
+
+        /// <summary>Returns the <see cref="CharacterAnimancerComponent"/> associated with the `node`.</summary>
+        public static CharacterAnimancerComponent Get(AnimancerNode node) => Get(node.Root);
+
+        /// <summary>Returns the <see cref="CharacterAnimancerComponent"/> associated with the `animancer`.</summary>
+        public static CharacterAnimancerComponent Get(AnimancerPlayable animancer) => animancer.Component as CharacterAnimancerComponent;
+        
+        #region Hit Boxes
+
+        private Dictionary<HitData, HitTrigger> _ActiveHits;
+        private HashSet<Combat.Hit.ITarget> _IgnoreHits;
+
+        public void AddHitBox(HitData data)
+        {
+            if (_IgnoreHits == null)
+            {
+                ObjectPool.Acquire(out _ActiveHits);
+                ObjectPool.Acquire(out _IgnoreHits);
+            }
+            
+            _ActiveHits.Add(data, HitTrigger.Activate(Character, data, FacingLeft, _IgnoreHits));
+        }
+
+
+        public void RemoveHitBox(HitData data)
+        {
+            if (_ActiveHits.TryGetValue(data, out var trigger))
+            {
+                trigger.Deactivate();
+                _ActiveHits.Remove(data);
+            }
+            
+        }
+
+        public void EndHitSequence()
+        {
+            if (_IgnoreHits == null)
+                return;
+
+            ClearHitBoxes();
+            ObjectPool.Release(ref _ActiveHits);
+            ObjectPool.Release(ref _IgnoreHits);
+        }
+
+        public void ClearHitBoxes()
+        {
+            if (_ActiveHits != null)
+            {
+                foreach (var trigger in _ActiveHits.Values)
+                    trigger.Deactivate();
+                _ActiveHits.Clear();
+            }
+        }
+
+        protected override void OnDisable()
+        {
+            EndHitSequence();
+            base.OnDisable();
+        }
+        
+        #endregion
     }
     
     
