@@ -92,8 +92,8 @@
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Utilities\CameraShakeWhenHit.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Characters\CharacterBody2D.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Combat\Health.cs" />
-     <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Behaviour Trees\Leaf Nodes\TurnAround.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Combat\ProjectileAttackTransition.cs" />
+     <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Behaviour Trees\Leaf Nodes\TurnAround.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Behaviour Trees\Result.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Characters\States\CharacterState.cs" />
      <Compile Include="Assets\Plugins\Platformer Game Kit\Code\Utilities\PlatformerUtilities.cs" />

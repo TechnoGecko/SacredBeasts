@@ -6,8 +6,8 @@ namespace Characters
 {
     public sealed class GroundCharacterMovement : CharacterMovement
     {
-        [SerializeField, MetersPerSecond] private float _WalkSpeed = 6;
-        [SerializeField, MetersPerSecond] private float _RunSpeed = 9;
+        [SerializeField] private float _WalkSpeed = 6f;
+        [SerializeField] private float _RunSpeed = 10f;
         [SerializeField, Seconds] private float _WalkSmoothing = 0;
         [SerializeField, Seconds] private float _RunSmoothing = 0.15f;
         [SerializeField, Seconds] private float _AirSmoothing = 0.3f;

@@ -3,7 +3,6 @@ using Animancer.FSM;
 using Characters.States;
 using Combat;
 using UnityEngine;
-using Combat;
 
 namespace Characters
 {

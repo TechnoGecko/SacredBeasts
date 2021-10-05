@@ -64,7 +64,7 @@ namespace Characters.Brains
             /*if (_SecondaryAttack != null && Input.GetButtonDown(_SecondaryAttackButton))
                 Character.StateMachine.TryResetState(_SecondaryAttack);*/
 
-            Character.Run = Input.GetButton(_RunButton);
+            Character.Run = true;
 
             Character.MovementDirection = new Vector2(
                 Input.GetAxisRaw(_XAxisName),

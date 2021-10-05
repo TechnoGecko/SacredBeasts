@@ -1854,6 +1854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 340102782557266173, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2d20d28cacf9e374cb64194be34ae864, type: 2}
     - target: {fileID: 2179228854332015548, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
       propertyPath: m_Name
       value: Fiend _Copy
@@ -1906,6 +1910,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 043df8a7d97531d438b1e26e87b588b6, type: 2}
+    - target: {fileID: 6215878106512325291, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
+      propertyPath: skullCount
+      value: 
+      objectReference: {fileID: 308002562}
     m_RemovedComponents:
     - {fileID: 7076333193758432493, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
     - {fileID: 6054014588835899182, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
@@ -1937,6 +1945,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7037215049000709381, guid: cafb509f3e155a849ba99d405afa4a02, type: 3}
   m_PrefabInstance: {fileID: 1936529096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1936529102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936529097}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172eb8e6d18b85c49819d5d6db91207f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 1936529105}
+  runSpeed: 10
+  maxSpeed: 5
 --- !u!114 &1936529103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,7 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Team: {fileID: 0}
-  _MaximumHealth: 1
+  _MaximumHealth: 51
 --- !u!114 &1936529104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,13 +1987,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Character: {fileID: 1936529105}
-  _WalkSpeed: 6.27
-  _RunSpeed: 2.58
+  _WalkSpeed: 3.1
+  _RunSpeed: 4.75
   _WalkSmoothing: 9
   _RunSmoothing: 0
   _AirSmoothing: 0
   _FrictionlessSmoothing: 0
-  _GripFriction: 0
+  _GripFriction: 0.97
 --- !u!114 &1936529105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,16 +2156,16 @@ MonoBehaviour:
       _Names: []
     _Clip: {fileID: 7400000, guid: 1a22e58f4661b8345baf036a98a243d5, type: 2}
     _Speed: 1
-    _NormalizedStartTime: 0
+    _NormalizedStartTime: NaN
   _Walk:
     _FadeDuration: 0
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400000, guid: 4e9470f95917c594ebad70cd3d43a566, type: 2}
     _Speed: 1
-    _NormalizedStartTime: 0
+    _NormalizedStartTime: NaN
   _Run:
     _FadeDuration: 0
     _Events:
@@ -2151,7 +2174,7 @@ MonoBehaviour:
       _Names: []
     _Clip: {fileID: 7400000, guid: 4e9470f95917c594ebad70cd3d43a566, type: 2}
     _Speed: 1
-    _NormalizedStartTime: 0
+    _NormalizedStartTime: NaN
   _Fall:
     _FadeDuration: 0
     _Events:
@@ -2160,7 +2183,7 @@ MonoBehaviour:
       _Names: []
     _Clip: {fileID: 7400000, guid: d66b595463cd83a45835a1aaf6efa4a2, type: 2}
     _Speed: 1
-    _NormalizedStartTime: 0
+    _NormalizedStartTime: NaN
 --- !u!114 &1936529114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,7 +2232,7 @@ MonoBehaviour:
     _NormalizedStartTime: 0
   _Angle: 40
   _Friction: 8
-  _RunFriction: 12
+  _RunFriction: 6.7
 --- !u!114 &1936529116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,8 +2329,8 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: 0
   _Inertia: 0.25
-  _Height: 2.6
-  _HoldAcceleration: 15.31
+  _Height: 2.5
+  _HoldAcceleration: 2.5
   _DetectionDistance: 0.2
   _HorizontalMultiplier: 1
 --- !u!114 &1936529125
@@ -2333,8 +2356,8 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: 0
   _Inertia: 0.25
-  _Height: 3
-  _HoldAcceleration: 40
+  _Height: 1.85
+  _HoldAcceleration: 4.5
 --- !u!114 &1936529126
 MonoBehaviour:
   m_ObjectHideFlags: 0

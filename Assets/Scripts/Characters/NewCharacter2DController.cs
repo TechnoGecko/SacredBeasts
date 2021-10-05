@@ -5,7 +5,7 @@ namespace Characters
     public class NewCharacter2DController : MonoBehaviour
     { 
         [Header("Movement")]
-        [SerializeField] float runSpeed = 10f;
+        [SerializeField] float runSpeed = 10f; // moved to FiendMovement
         public Vector2 direction;
         public bool facingRight = true;
         private float jumpTimer;
@@ -62,6 +62,13 @@ namespace Characters
         const string PLAYER_WALL = "Player_wallslide1";
         const string PLAYER_LEDGE = "Player_ledgegrab1";
 
+
+        private void Awake()
+        {
+            horizontal = rb2d.velocity.x;
+            vertical = rb2d.velocity.y;
+        }
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -104,11 +111,10 @@ namespace Characters
         
         
         
-            horizontal = rb2d.velocity.x;
-            vertical = rb2d.velocity.y;
+            
         
         }
-
+        //Migrated to FiendMovement.cs
         void MoveCharacter(float horizontal)
         {
             rb2d.AddForce(Vector2.right * horizontal * runSpeed);
@@ -253,7 +259,7 @@ namespace Characters
             Debug.DrawRay(boxCollider.bounds.center, Vector2.left * (boxCollider.bounds.extents.x + extraLengthText), rayColorLeft);
 
         
-            isTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider) ? true : false;
+            isTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider);
             if(raycastHitRight.collider && !raycastHitLeft.collider)
             {
                 wallJumpDirection = -1;
