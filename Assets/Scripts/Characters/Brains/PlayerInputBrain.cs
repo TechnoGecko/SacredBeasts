@@ -1,77 +1,62 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Characters.States;
+using TMPro;
 using UnityEngine;
 
-namespace Characters.Brains 
+namespace Characters.Brains
 {
-    [AddComponentMenu(MenuPrefix + "Player Input Brain")]
-
     public class PlayerInputBrain : CharacterBrain
     {
-        [Header("Input Names")]
+        
+        
+        [SerializeField] private string _JumpButton = "Jump";
 
-        [SerializeField]
-        [Tooltip("Space by default")]
-        private string _JumpButton = "Jump";
+        [SerializeField] private string _PrimaryAttackButton = "Fire1";
 
-        [SerializeField]
-        [Tooltip("Left Click by default")]
-        private string _PrimaryAttackButton = "Fire1";
+        [SerializeField] private string _XAxisName = "Horizontal";
 
-        [SerializeField]
-        [Tooltip("Right Click by default")]
-        private string _SecondaryAttackButton = "Fire2";
-
-        [SerializeField]
-        [Tooltip("Left Shift by default")]
-        private string _RunButton = "Fire3";
-
-        [SerializeField]
-        [Tooltip("A/D and Left/Right Arrows by default")]
-        private string _XAxisName = "Horizontal";
-
-        [SerializeField]
-        [Tooltip("W/S and Up/Down Arrows by default")]
-        private string _YAxisName = "Vertical";
+        [SerializeField] private string _YAxisName = "Vertical";
 
         [Header("Actions")]
         [SerializeField] private CharacterState _Jump;
-        [SerializeField] private CharacterState _PrimaryAttack;
-        /*
-        [SerializeField] private CharacterState _SecondaryAttack;
-        */
+        [SerializeField] private CharacterState _Attack;
 
         private CharacterState _CurrentJumpState;
 
+        [SerializeField]private bool _IsHoldingJump;
+        public bool IsHoldingJump => _IsHoldingJump;
+
+        
+
+        
         private void Update()
         {
+            Character.InputDirection = new Vector2(Input.GetAxisRaw(_XAxisName), Input.GetAxisRaw(_YAxisName));
+
+            _IsHoldingJump = Input.GetButton(_JumpButton);
+            
             if (_Jump != null)
             {
-                if (Input.GetButtonDown(_JumpButton) &&
-                    Character.StateMachine.TrySetState(_Jump))
+                if (Input.GetButtonDown(_JumpButton) && Character.StateMachine.TrySetState(_Jump))
                     _CurrentJumpState = Character.StateMachine.CurrentState;
 
                 if (_CurrentJumpState == Character.StateMachine.CurrentState &&
                     Input.GetButtonUp(_JumpButton))
                     Character.StateMachine.TrySetDefaultState();
+
+                if (_Attack != null && Input.GetButtonDown(_PrimaryAttackButton))
+                    Character.StateMachine.TryResetState(_Attack);
+
+                Character.MovementDirection = new Vector2(
+                    Input.GetAxisRaw(_XAxisName),
+                    Input.GetAxisRaw(_YAxisName));
+
+                
             }
 
-            if (_PrimaryAttack != null && Input.GetButtonDown(_PrimaryAttackButton))
-                Character.StateMachine.TryResetState(_PrimaryAttack);
             
-            /*if (_SecondaryAttack != null && Input.GetButtonDown(_SecondaryAttackButton))
-                Character.StateMachine.TryResetState(_SecondaryAttack);*/
 
-            Character.Run = true;
-
-            Character.MovementDirection = new Vector2(
-                Input.GetAxisRaw(_XAxisName),
-                Input.GetAxisRaw(_YAxisName));
         }
-        
     }
     
-
+    
 }

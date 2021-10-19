@@ -3,24 +3,32 @@ using UnityEngine;
 
 namespace Characters.States
 {
-    
-    [AddComponentMenu(MenuPrefix + "Multi State")]
     [DefaultExecutionOrder(DefaultExecutionOrder)]
     public class MultiState : CharacterState
     {
         public const int DefaultExecutionOrder = -1000;
 
+        /************************************************************************************************************************/
+
         [SerializeField]
         [Tooltip("While in one of the States, should it try to enter them again in order every " + nameof(FixedUpdate) + "?")]
         private bool _AutoInternalTransitions;
         public bool AutoInternalTransitions => _AutoInternalTransitions;
-        
+
         [SerializeField]
         [Tooltip("The other states that this one will try to enter in order")]
         private CharacterState[] _States;
         public CharacterState[] States => _States;
 
         private CharacterState _CurrentState;
+
+        /************************************************************************************************************************/
+
+        public override bool CanEnterState => Character.StateMachine.CanSetState(_States);
+
+        public override bool CanExitState => true;
+
+        /************************************************************************************************************************/
 
         public override void OnEnterState()
         {
@@ -49,11 +57,9 @@ namespace Characters.States
             }
         }
 
+        public override void OnExitState() { }
 
-        public override void OnExitState()
-        {
-            
-        }
+        /************************************************************************************************************************/
 
         protected virtual void FixedUpdate()
         {

@@ -1,131 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using Characters;
+using Characters.States;
 using UnityEngine;
 using Animancer;
-using Animancer.Units;
-using PlatformerGameKit;
-using PlatformerGameKit.Characters.States;
 
-
-namespace Characters.States.Jump
+public class WallJumpState : BaseJumpState
 {
-    [AddComponentMenu(MenuPrefix + "Wall Jump State")]
+    
+    [SerializeField] float wallJumpForce = 3.2f;
+    [SerializeField] Vector2 wallJumpAngle = new Vector2(9f, 3.2f);
+    
+    [SerializeField] private ClipTransition _WallJumpAnimation;
+    public ClipTransition WallJumpAnimation => _WallJumpAnimation;
+    public override bool CanEnterState
+    {
 
-
-public class WallJumpState : HoldJumpState
-{
-   /************************************************************************************************************************/
-
-        [SerializeField, Meters]
-        [Tooltip("The wall detection range")]
-        private float _DetectionDistance = 0.2f;
-        public float DetectionDistance => _DetectionDistance;
-
-        [SerializeField, Multiplier]
-        [Tooltip("The amount of horizontal force applied (relative to the vertical force)")]
-        private float _HorizontalMultiplier = 1;
-        public float HorizontalMultiplier => _HorizontalMultiplier;
-
-        /************************************************************************************************************************/
-
-        private Vector2 _WallNormal;
-
-        /************************************************************************************************************************/
-
-#if UNITY_EDITOR
-        /// <inheritdoc/>
-        protected override void OnValidate()
+        get
         {
-            base.OnValidate();
-            PlatformerUtilities.NotNegative(ref _DetectionDistance);
-            PlatformerUtilities.NotNegative(ref _HorizontalMultiplier);
-        }
-#endif
-
-        /************************************************************************************************************************/
-
-        public override bool CanEnterState
-        {
-            get
-            {
-                if (Character.Body.IsGrounded ||
-                    _DetectionDistance <= 0)
-                    return false;
-
-                // Check in the direction you are facing first.
-
-                var direction = new Vector2(Character.Animancer.FacingX, 0);
-                if (CheckForWallJump(direction))
-                    return true;
-
-                // If that failed, check the opposite direction.
-
-                if (CheckForWallJump(-direction))
-                    return true;
-
+            if (Character.Body.IsGrounded ||
+                !Character.Body.IsTouchingWall)
                 return false;
-            }
-        }
 
-        /************************************************************************************************************************/
-
-        private bool CheckForWallJump(Vector2 direction)
-        {
-            var bounds = Character.Body.Collider.bounds;
-            var layers = Character.Body.TerrainFilter.layerMask;
-            var count = Physics2D.BoxCastNonAlloc(
-                bounds.center, bounds.size, Character.Body.Rotation, direction,
-                PlatformerUtilities.OneRaycastHit, _DetectionDistance, layers);
-
-            if (count > 0)
-            {
-                _WallNormal = -direction;
+            if (Character.Body.IsTouchingWall && !Character.Body.IsGrounded)
                 return true;
-            }
-            else return false;
+
+            return false;
         }
+    }
 
-        /************************************************************************************************************************/
-
-        /// <summary>
-        /// Sets the <see cref="CharacterBody2D.IsGrounded"/> to be <c>true</c> momentarily so that
-        /// <see cref="AirJumpState"/> resets its jump counter.
-        /// </summary>
-        public override void OnEnterState()
-        {
-            Character.Body.IsGrounded = true;
-            base.OnEnterState();
-            Character.Body.IsGrounded = false;
-            _WallNormal = default;
-        }
-
-        /************************************************************************************************************************/
-
-        /// <summary>
-        /// Prevents <see cref="LandState"/> from being triggered by setting the
-        /// <see cref="CharacterBody2D.IsGrounded"/> because at that point the <see cref="JumpState.Animation"/> hasn't
-        /// started playing yet.
-        /// </summary>
-        public override bool CanExitState => Animation.State.IsPlaying;
-
-        /************************************************************************************************************************/
-
-        public override Vector2 CalculateJumpVelocity()
-        {
-            AnimancerUtilities.Assert(_HorizontalMultiplier == 0 || _WallNormal != default,
-                $"{nameof(WallJumpState)} can't calculate the jump velocity without the wall normal." +
-                $" This likely means it was forced to enter without checking {nameof(CanEnterState)}");
-
-            if (Character.MovementDirection.x == 0)
-                Character.Animancer.Facing = _WallNormal;
-
-            var speed = CalculateJumpSpeed(Height);
-
-            var velocity = Character.Body.Velocity;
-            velocity.x = 0;
-            velocity.y *= Inertia;
-            velocity.y += speed;
-            velocity += _WallNormal * (speed * _HorizontalMultiplier);
-            return velocity;
-        }
-}
-
+    public override void OnEnterState()
+    {
+        Character.Body.Rigidbody2D.velocity = new Vector2(Character.Body.HorizontalVelocity, 0);
+        Character.Body.Rigidbody2D.AddForce(new Vector2(wallJumpForce * Character.Body.WallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y));
+        Character.Animancer.Play(_WallJumpAnimation);
+    }
+    
 }

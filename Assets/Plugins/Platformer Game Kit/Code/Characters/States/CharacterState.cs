@@ -4,7 +4,6 @@
 
 using Animancer;
 using Animancer.FSM;
-using Characters;
 using UnityEngine;
 
 namespace PlatformerGameKit.Characters.States

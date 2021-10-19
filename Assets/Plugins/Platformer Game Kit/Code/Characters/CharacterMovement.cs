@@ -3,12 +3,10 @@
 #pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
 
 using Animancer;
-using Characters;
-using PlatformerGameKit.Characters;
 using PlatformerGameKit.Characters.Brains;
 using UnityEngine;
 
-namespace Characters
+namespace PlatformerGameKit.Characters
 {
     /// <summary>Base class for moving a <see cref="Character"/>.</summary>
     /// <remarks>

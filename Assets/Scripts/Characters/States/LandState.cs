@@ -1,38 +1,33 @@
-using UnityEngine;
 using Animancer;
 using Animancer.Units;
 using PlatformerGameKit;
-
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Characters.States
 {
-    [AddComponentMenu(MenuPrefix + "Land State")]
     public class LandState : CharacterState
     {
         [SerializeField] private ClipTransition _Animation;
-        
-        [SerializeField, MetersPerSecond]
-        [Tooltip("This state will only activate if the character is moving at least this fast downwards when they land")]
-        private float _RequiredDownSpeed = 7;
 
-        [SerializeField, Range(0, 1)]
-        [Tooltip("The character's speed is multiplied by this value while in this state")]
-        private float _MovementSpeedMultiplier = 1;
+        [SerializeField, MetersPerSecond] private float _MinimumVerticalSpeed = 7;
 
-        /// <inheritdoc/>
+        [SerializeField, Range(0, 1)] private float _MovementSpeedMultiplier = 1;
+
         public override float MovementSpeedMultiplier => _MovementSpeedMultiplier;
-        
-        
+    
 #if UNITY_EDITOR
-        /// <inheritdoc/>
         protected override void OnValidate()
         {
             base.OnValidate();
-            PlatformerUtilities.NotNegative(ref _RequiredDownSpeed);
+            PlatformerUtilities.NotNegative(ref _MinimumVerticalSpeed);
             PlatformerUtilities.Clamp(ref _MovementSpeedMultiplier, 0, 1);
+
+            if (GetComponent<Collider2D>() == null)
+                Debug.LogWarning($"{nameof(LandState)} must be on the same {nameof(GameObject)} as a {nameof(Collider2D)}" +
+                                 $" so that it can receive {nameof(OnCollisionEnter2D)} messages.", this);
         }
 #endif
-
 
         private void Awake()
         {
@@ -41,10 +36,19 @@ namespace Characters.States
             Character.Body.OnGroundedChanged += OnGroundedChanged;
         }
 
-        private void OnGroundedChanged(bool IsGrounded)
+
+        private float _GroundContactTime = float.NaN;
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (IsGrounded &&
-                Utilities.Context<ContactPoint2D>.Current.relativeVelocity.y >= _RequiredDownSpeed)
+            if (collision.relativeVelocity.y >= _MinimumVerticalSpeed)
+                _GroundContactTime = Time.timeSinceLevelLoad;
+        }
+
+        private void OnGroundedChanged(bool isGrounded)
+        {
+            if (isGrounded &&
+                _GroundContactTime >= Time.timeSinceLevelLoad - Time.fixedDeltaTime * 1.5f)
                 Character.StateMachine.TrySetState(this);
         }
 
@@ -53,7 +57,5 @@ namespace Characters.States
             base.OnEnterState();
             Character.Animancer.Play(_Animation);
         }
-        
-
     }
 }

@@ -3,7 +3,6 @@
 #pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
 
 using Animancer;
-using Characters;
 using UnityEngine;
 
 namespace PlatformerGameKit.Characters.Brains

@@ -41,91 +41,60 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Combat\HitTrigger.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Jump\HoldJumpState.cs" />
-     <Compile Include="Assets\Scripts\Combat\Team.cs" />
-     <Compile Include="Assets\Scripts\Combat\Hit.Core.cs" />
      <Compile Include="Assets\Scripts\Combat\Health.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\LocomotionState.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Jump\WallJumpState.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\CharacterState.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\Jump\BaseJumpState.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\FiendLocomotionState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterBody2D.cs" />
-     <Compile Include="Assets\Scripts\Characters\FiendMovement.cs" />
-     <Compile Include="Assets\Scripts\Utilities\AssemblyInfo.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\BasicActionState.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\MultiState.cs" />
      <Compile Include="Assets\Scripts\SkullHandler.cs" />
-     <Compile Include="Assets\Scripts\Combat\Hit.Details.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Attack\AttackState.cs" />
-     <Compile Include="Assets\Scripts\Utilities\NextExampleTrigger.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-     <Compile Include="Assets\Scripts\Characters\FiendBody.cs" />
-     <Compile Include="Assets\Scripts\Utilities\DefaultFadeDuration.cs" />
+     <Compile Include="Assets\Scripts\Characters\PlayerBody.cs" />
      <Compile Include="Assets\Scripts\Characters\States\WallSlideState.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\MultiState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\CharacterState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\LandState.cs" />
-     <Compile Include="Assets\Scripts\Utilities\MovingObject2D.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterAnimancerComponent.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Scripts\AnimationController.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-     <Compile Include="Assets\Scripts\Combat\HitData.Drawer.cs" />
-     <Compile Include="Assets\Scripts\Utilities\CameraShakeWhenHit.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
-     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Characters\Character.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\Combat\HitTrigger.cs" />
+     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\IdleState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-     <Compile Include="Assets\Scripts\Utilities\CameraShake.cs" />
-     <Compile Include="Assets\Scripts\Combat\HitData.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Attack\AdvancedAttackState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\LandState.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-     <Compile Include="Assets\Scripts\Characters\Fiend.cs" />
-     <Compile Include="Assets\Scripts\Utilities\CameraMan.cs" />
-     <Compile Include="Assets\Scripts\Characters\PlatformContact2D.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-     <Compile Include="Assets\Scripts\Utilities\ReadMe.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-     <Compile Include="Assets\Scripts\Characters\Brains\PlayerInputBrain.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Jump\JumpState.cs" />
+     <Compile Include="Assets\Scripts\Characters\PlatformContact.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-     <Compile Include="Assets\Scripts\Utilities\HealthDisplay.cs" />
-     <Compile Include="Assets\Scripts\Utilities\PlatformerUtilities.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterAnimancerComponent.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Strings.cs" />
-     <Compile Include="Assets\Scripts\Characters\GroundCharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\Characters\Brains\PlayerInputBrain.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-     <Compile Include="Assets\Scripts\Combat\ITeam.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-     <Compile Include="Assets\Scripts\Characters\BoxCharacterBody2D.cs" />
-     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Destructible.cs" />
-     <Compile Include="Assets\Scripts\Utilities\SetupDemoLayers.cs" />
-     <Compile Include="Assets\Scripts\Utilities\Context.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\FiendIdleState.cs" />
+     <Compile Include="Assets\Scripts\Characters\Brains\CharacterBrain.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-     <Compile Include="Assets\Scripts\Characters\FiendInputBrain.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\Characters\NewCharacter2DController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\Characters\Brains\CharacterBrain.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\Jump\WallJumpState.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -865,10 +834,6 @@
       <Project>{4641692f-80b8-133f-02a0-fd9ae17eb21e}</Project>
       <Name>Animancer.Examples</Name>
     </ProjectReference>
-    <ProjectReference Include="PlatformerGameKit.csproj">
-      <Project>{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}</Project>
-      <Name>PlatformerGameKit</Name>
-    </ProjectReference>
     <ProjectReference Include="Animancer.FSM.csproj">
       <Project>{65681676-006b-106c-58d8-6e129a638cb4}</Project>
       <Name>Animancer.FSM</Name>
@@ -876,6 +841,10 @@
     <ProjectReference Include="Animancer.csproj">
       <Project>{5fbf1433-4657-afb6-3be8-fbbf0449cef1}</Project>
       <Name>Animancer</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlatformerGameKit.csproj">
+      <Project>{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}</Project>
+      <Name>PlatformerGameKit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

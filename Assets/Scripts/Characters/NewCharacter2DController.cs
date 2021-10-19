@@ -27,6 +27,8 @@ namespace Characters
         [SerializeField] float wallSlideSpeed = -1.1f;
         [SerializeField] private LayerMask wallLayerMask;
         private bool isTouchingWall;
+        private bool touchingWallLeft;
+        private bool touchingWallRight;
         private bool isWallSliding;
     
     
@@ -56,11 +58,11 @@ namespace Characters
         private string currentState;
 
         //Animation states
-        const string PLAYER_IDLE = "Player_Idle1";
+        /*const string PLAYER_IDLE = "Player_Idle1";
         const string PLAYER_JUMP = "Player_jump1";
         const string PLAYER_RUN = "Player_run1";
         const string PLAYER_WALL = "Player_wallslide1";
-        const string PLAYER_LEDGE = "Player_ledgegrab1";
+        const string PLAYER_LEDGE = "Player_ledgegrab1";*/
 
 
         private void Awake()
@@ -187,7 +189,7 @@ namespace Characters
             transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
         }
 
-
+//Implemented in PlayerBody
         private void GroundCheck()
         {
             float extraHeightText = .1f;
@@ -234,6 +236,7 @@ namespace Characters
             animator.SetFloat("vertical", vertical);
         }
 
+        //Implemented in PlayerBody
         private void WallCheck()
         {
             float extraLengthText = .1f;
@@ -263,9 +266,17 @@ namespace Characters
             if(raycastHitRight.collider && !raycastHitLeft.collider)
             {
                 wallJumpDirection = -1;
+                touchingWallLeft = true;
             } else if(raycastHitLeft.collider && !raycastHitRight.collider)
             {
                 wallJumpDirection = 1;
+                touchingWallRight = true;
+            }
+            else
+            {
+                wallJumpDirection = 0;
+                touchingWallLeft = false;
+                touchingWallRight = false;
             }
         
         

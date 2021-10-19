@@ -3,7 +3,6 @@
 using PlatformerGameKit.Characters;
 using PlatformerGameKit.Characters.States;
 using System;
-using Characters;
 using UnityEngine;
 
 namespace PlatformerGameKit.BehaviourTrees

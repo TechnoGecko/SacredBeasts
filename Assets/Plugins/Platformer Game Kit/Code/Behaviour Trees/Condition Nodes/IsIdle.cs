@@ -2,7 +2,6 @@
 
 using PlatformerGameKit.Characters;
 using System;
-using Characters;
 
 namespace PlatformerGameKit.BehaviourTrees
 {

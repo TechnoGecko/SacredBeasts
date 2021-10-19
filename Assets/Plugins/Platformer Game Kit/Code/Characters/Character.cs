@@ -4,13 +4,10 @@
 
 using Animancer;
 using Animancer.FSM;
-using PlatformerGameKit;
-using PlatformerGameKit.Characters;
 using PlatformerGameKit.Characters.States;
 using UnityEngine;
-using Strings = PlatformerGameKit.Strings;
 
-namespace Characters
+namespace PlatformerGameKit.Characters
 {
     /// <summary>
     /// A centralised group of references to the common parts of a character and a <see cref="StateMachine"/> for their
@@ -32,7 +29,7 @@ namespace Characters
         public const string MenuPrefix = Strings.MenuPrefix + "Characters/";
 
         /// <summary>The URL of the website where the <see cref="Characters"/> API documentation is hosted.</summary>
-        public const string APIDocumentation = Strings.APIDocumentation + "." + nameof(PlatformerGameKit.Characters) + "/";
+        public const string APIDocumentation = Strings.APIDocumentation + "." + nameof(Characters) + "/";
 
         /************************************************************************************************************************/
 

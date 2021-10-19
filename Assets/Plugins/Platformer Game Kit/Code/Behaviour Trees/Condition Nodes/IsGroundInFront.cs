@@ -3,7 +3,6 @@
 using Animancer.Units;
 using PlatformerGameKit.Characters;
 using System;
-using Characters;
 using UnityEngine;
 using static Animancer.Validate;
 

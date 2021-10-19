@@ -1,19 +1,44 @@
+﻿// Platformer Game Kit // https://kybernetik.com.au/platformer // Copyright 2021 Kybernetik //
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
 using System;
 using PlatformerGameKit;
 using UnityEngine;
-using Utilities;
 
 namespace Combat
 {
-    public class Health : MonoBehaviour, Hit.ITarget, ISerializationCallbackReceiver, ITeam
+    /// <summary>A method called when a value is changed.</summary>
+    /// https://kybernetik.com.au/platformer/api/PlatformerGameKit/ValueChangeEvent_1
+    /// 
+    public delegate void ValueChangeEvent<T>(T oldValue, T newValue);
+
+    /// <summary>Keeps track of the health of an object.</summary>
+    /// <remarks>
+    /// Documentation: <see href="https://kybernetik.com.au/platformer/docs/combat/hits">Hits</see>
+    /// </remarks>
+    /// https://kybernetik.com.au/platformer/api/PlatformerGameKit/Health
+    /// 
+    [AddComponentMenu(Strings.MenuPrefix + "Health")]
+    [HelpURL(Strings.APIDocumentation + "/" + nameof(Health))]
+    [DefaultExecutionOrder(DefaultExecutionOrder)]
+    public sealed class Health : MonoBehaviour, ITeam, Hit.ITarget, ISerializationCallbackReceiver
     {
+        /************************************************************************************************************************/
+
+        /// <summary>Initialize the <see cref="CurrentHealth"/> earlier than anything else will use it.</summary>
+        public const int DefaultExecutionOrder = -5000;
+
+        /************************************************************************************************************************/
+
         [SerializeField]
         private Team _Team;
 
         /// <summary>[<see cref="ITeam"/>] The <see cref="Platformer.Team"/> this object is on.</summary>
         public Team Team => _Team;
-        
-        
+
+        /************************************************************************************************************************/
+
         [SerializeField]
         private int _MaximumHealth;
         public int MaximumHealth
@@ -26,11 +51,12 @@ namespace Combat
                 OnMaximumHealthChanged?.Invoke(oldValue, value);
             }
         }
-    
 
         public event ValueChangeEvent<int> OnMaximumHealthChanged;
-    
-    
+
+        /************************************************************************************************************************/
+
+        /// <summary>Determines how <see cref="SetMaximumHealth"/> affects the <see cref="CurrentHealth"/>.</summary>
         public enum HealthChangeMode
         {
             /// <summary>
@@ -62,7 +88,12 @@ namespace Combat
             /// </code></example>
             Ignore,
         }
-    
+
+        /************************************************************************************************************************/
+
+        /// <summary>
+        /// Sets the <see cref="MaximumHealth"/> and then adjusts the <see cref="CurrentHealth"/> based on the `mode`.
+        /// </summary>
         public void SetMaximumHealth(int value, HealthChangeMode mode)
         {
             if (_MaximumHealth == value)
@@ -91,7 +122,9 @@ namespace Combat
                     throw new ArgumentException($"Unsupported {nameof(HealthChangeMode)}", nameof(mode));
             }
         }
-        
+
+        /************************************************************************************************************************/
+
         private int _CurrentHealth;
         public int CurrentHealth
         {
@@ -150,7 +183,5 @@ namespace Combat
         public event Action<Hit> OnHitReceived;
 
         /************************************************************************************************************************/
-    
-        
     }
 }

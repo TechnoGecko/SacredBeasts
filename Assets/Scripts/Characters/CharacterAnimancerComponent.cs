@@ -1,37 +1,30 @@
-using System;
+using UnityEngine;
 using Animancer;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using PlatformerGameKit;
-using UnityEngine;
-using HitData = Combat.HitData;
-using Object = System.Object;
+using HitTrigger = Combat.HitTrigger;
+
 
 namespace Characters
 {
-    
-      
-    
     public sealed class CharacterAnimancerComponent : AnimancerComponent
     {
-        
         [SerializeField]
         private SpriteRenderer _Renderer;
+
         public SpriteRenderer Renderer => _Renderer;
 
-        [SerializeField]
-        private Character _Character;
+        [SerializeField] private Character _Character;
         public Character Character => _Character;
         
         #if UNITY_EDITOR
+
         private void OnValidate()
         {
             gameObject.GetComponentInParentOrChildren(ref _Renderer);
             gameObject.GetComponentInParentOrChildren(ref _Character);
-            
-
         }
-#endif
+        #endif
         
         #if UNITY_ASSERTIONS
 
@@ -39,7 +32,8 @@ namespace Characters
         {
             DontAllowFade.Assert(this);
         }
-#endif
+        #endif
+
         public bool FacingLeft
         {
             get => _Renderer.flipX;
@@ -49,7 +43,6 @@ namespace Characters
         public float FacingX
         {
             get => _Renderer.flipX ? -1f : 1f;
-
             set
             {
                 if (value != 0)
@@ -60,45 +53,40 @@ namespace Characters
         public Vector2 Facing
         {
             get => new Vector2(FacingX, 0);
-
             set => FacingX = value.x;
         }
 
-        public void Update()
+        private void Update()
         {
-            if (Character.StateMachine.CurrentState.CanTurn)
+            if(Character.StateMachine.CurrentState.CanTurn)
                 Facing = Character.MovementDirection;
         }
-        
 
-        /// <summary>
-        /// Returns the <see cref="CharacterAnimancerComponent"/> associated with the
-        /// <see cref="AnimancerEvent.CurrentState"/>.
-        /// </summary>
         public static CharacterAnimancerComponent GetCurrent() => Get(AnimancerEvent.CurrentState);
 
-        /// <summary>Returns the <see cref="CharacterAnimancerComponent"/> associated with the `node`.</summary>
         public static CharacterAnimancerComponent Get(AnimancerNode node) => Get(node.Root);
 
-        /// <summary>Returns the <see cref="CharacterAnimancerComponent"/> associated with the `animancer`.</summary>
-        public static CharacterAnimancerComponent Get(AnimancerPlayable animancer) => animancer.Component as CharacterAnimancerComponent;
+        public static CharacterAnimancerComponent Get(AnimancerPlayable animancer) =>
+            animancer.Component as CharacterAnimancerComponent;
         
         #region Hit Boxes
 
-        private Dictionary<HitData, HitTrigger> _ActiveHits;
-        private HashSet<Combat.Hit.ITarget> _IgnoreHits;
 
-        public void AddHitBox(HitData data)
+        private Dictionary<HitData, HitTrigger> _ActiveHits;
+        private HashSet<Hit.ITarget> _IgnoreHits;
+
+
+        private void AddHitBox(HitData data)
         {
             if (_IgnoreHits == null)
             {
                 ObjectPool.Acquire(out _ActiveHits);
                 ObjectPool.Acquire(out _IgnoreHits);
+                
             }
-            
             _ActiveHits.Add(data, HitTrigger.Activate(Character, data, FacingLeft, _IgnoreHits));
+            
         }
-
 
         public void RemoveHitBox(HitData data)
         {
@@ -107,7 +95,6 @@ namespace Characters
                 trigger.Deactivate();
                 _ActiveHits.Remove(data);
             }
-            
         }
 
         public void EndHitSequence()
@@ -135,10 +122,8 @@ namespace Characters
             EndHitSequence();
             base.OnDisable();
         }
-        
+
         #endregion
+
     }
-    
-    
-    
 }

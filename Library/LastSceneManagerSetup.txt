@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Animancer FSM Test.unity
+- path: Assets/Scenes/Wasteland Playground.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

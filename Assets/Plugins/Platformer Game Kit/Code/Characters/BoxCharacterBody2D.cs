@@ -4,7 +4,6 @@
 
 using Animancer.Units;
 using System.Collections.Generic;
-using Characters;
 using UnityEngine;
 using static Animancer.Validate;
 

@@ -5,7 +5,6 @@
 using Animancer;
 using PlatformerGameKit.Characters.Brains;
 using System;
-using Characters;
 using UnityEngine;
 
 namespace PlatformerGameKit.Characters

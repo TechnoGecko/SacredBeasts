@@ -1,16 +1,27 @@
-using System.Collections;
+﻿// Platformer Game Kit // https://kybernetik.com.au/platformer // Copyright 2021 Kybernetik //
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
 using System.Collections.Generic;
-using UnityEngine;
 using Animancer;
-using Characters;
-using Combat;
+using PlatformerGameKit;
+using PlatformerGameKit.Characters;
+using UnityEngine;
+using Strings = PlatformerGameKit.Strings;
 
-
-[AddComponentMenu(Strings.MenuPrefix + "Hit Trigger")]
-
-public class HitTrigger : MonoBehaviour
+namespace Combat
 {
-    /************************************************************************************************************************/
+    /// <summary>A component which uses a <see cref="PolygonCollider2D"/> trigger to <see cref="Hit"/> things.</summary>
+    /// <remarks>
+    /// Documentation: <see href="https://kybernetik.com.au/platformer/docs/combat/melee">Melee Attacks</see>
+    /// </remarks>
+    /// https://kybernetik.com.au/platformer/api/PlatformerGameKit/HitTrigger
+    /// 
+    [AddComponentMenu(Strings.MenuPrefix + "Hit Trigger")]
+    [HelpURL(Strings.APIDocumentation + "/" + nameof(HitTrigger))]
+    public sealed class HitTrigger : MonoBehaviour
+    {
+        /************************************************************************************************************************/
         #region Prefab
         /************************************************************************************************************************/
 
@@ -84,10 +95,10 @@ public class HitTrigger : MonoBehaviour
 
         /************************************************************************************************************************/
 
-        public static HitTrigger Activate(Character character, HitData data, bool flipX, HashSet<Combat.Hit.ITarget> ignore)
+        public static HitTrigger Activate(Characters.Character character, HitData data, bool flipX, HashSet<Hit.ITarget> ignore)
         {
             AnimancerUtilities.Assert(character != null,
-                $"{nameof(Character)} is null.");
+                $"{nameof(PlatformerGameKit.Characters.Character)} is null.");
             AnimancerUtilities.Assert(data != null,
                 $"{nameof(HitData)} is null.");
             AnimancerUtilities.Assert(data.Area != null,
@@ -218,9 +229,9 @@ public class HitTrigger : MonoBehaviour
 
         // Set by Activate.
         public Transform Parent { get; private set; }
-        public Character Character { get; private set; }
+        public Characters.Character Character { get; private set; }
         public HitData Data { get; private set; }
-        public HashSet<Combat.Hit.ITarget> Ignore { get; private set; }
+        public HashSet<Hit.ITarget> Ignore { get; private set; }
 
         /************************************************************************************************************************/
 
@@ -248,12 +259,11 @@ public class HitTrigger : MonoBehaviour
                 return;
 
             AnimancerUtilities.Assert(Character != null,
-                $"{nameof(Character)} has been destroyed but didn't release its {nameof(HitTrigger)}.");
+                $"{nameof(PlatformerGameKit.Characters.Character)} has been destroyed but didn't release its {nameof(HitTrigger)}.");
             AnimancerUtilities.Assert(Character.gameObject.activeInHierarchy,
-                $"{nameof(Character)} is inactive but didn't release its {nameof(HitTrigger)}.");
+                $"{nameof(PlatformerGameKit.Characters.Character)} is inactive but didn't release its {nameof(HitTrigger)}.");
 
-            
-            var hit = new Combat.Hit(Character.transform, Character.Health.Team, Data.Damage, Ignore);
+            var hit = new Hit(Character.transform, Character.Health.Team, Data.Damage, Ignore);
             hit.TryHitComponent(collider);
         }
 
@@ -316,4 +326,4 @@ public class HitTrigger : MonoBehaviour
 #endif
         /************************************************************************************************************************/
     }
-
+}

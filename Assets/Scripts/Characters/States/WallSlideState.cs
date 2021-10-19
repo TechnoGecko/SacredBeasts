@@ -1,38 +1,29 @@
 using System;
+using UnityEngine;
 using Animancer;
 using PlatformerGameKit;
-using UnityEngine;
-using static Utilities.PlatformerUtilities;
+
 
 namespace Characters.States
 {
-    
-    [AddComponentMenu(MenuPrefix + "Wall Slide State")]
-
     public class WallSlideState : CharacterState
     {
-    /************************************************************************************************************************/
+        [SerializeField] private ClipTransition _Animation;
 
-        [SerializeField]
-        private ClipTransition _Animation;
-
+        [SerializeField] float wallSlideSpeed = -1.1f;
+        
         [SerializeField]
         [Range(0, 90)]
         [Tooltip("The maximum angle allowed between horizontal and a contact normal for it to be considered a wall")]
         private float _Angle = 40;
 
-        [SerializeField]
-        [Tooltip("The amount of friction used while moving normally")]
+        [SerializeField] [Tooltip("The amount of friction used while moving normally")]
         private float _Friction = 8;
 
-        [SerializeField]
-        [Tooltip("The amount of friction used while attempting to run")]
+        [SerializeField] [Tooltip("The amount of friction used while attempting to run")]
         private float _RunFriction = 12;
 
-        /************************************************************************************************************************/
-
 #if UNITY_EDITOR
-        /// <inheritdoc/>
         protected override void OnValidate()
         {
             base.OnValidate();
@@ -42,49 +33,41 @@ namespace Characters.States
         }
 #endif
 
-        /************************************************************************************************************************/
 
         public override bool CanEnterState
         {
             get
             {
-                if (Character.MovementDirectionX == 0 ||
+                if (Character.MovementDirection.x == 0 ||
                     Character.Body.IsGrounded ||
-                    Character.Body.Velocity.y > 0)
+                    Character.Body.VerticalVelocity > 0)
                     return false;
 
                 var filter = Character.Body.TerrainFilter;
-                var angle = Character.MovementDirectionX > 0 ? 180 : 0;
+                var angle = Character.MovementDirection.x > 0 ? 180 : 0;
                 filter.SetNormalAngle(angle - _Angle, angle + _Angle);
-
-                var count = Character.Body.Rigidbody.GetContacts(filter, PlatformerUtilities.OneContact);
+                var count = Character.Body.Rigidbody2D.GetContacts(filter, PlatformerUtilities.OneContact);                         
                 return count > 0;
             }
         }
-
-        /************************************************************************************************************************/
 
         public override void OnEnterState()
         {
             base.OnEnterState();
             Character.Animancer.Play(_Animation);
-            FixedUpdate();
+
         }
 
-        /************************************************************************************************************************/
-
-        private void FixedUpdate()
+        public void Update()
         {
-            var velocity = Character.Body.Velocity;
-            var friction = Character.Run ? _RunFriction : _Friction;
-            velocity.y *= 1 - Math.Min(friction * Time.deltaTime, 1);
-            Character.Body.Velocity = velocity;
-        }
+            if (Character.Body.VerticalVelocity < 0)
+                Character.Body.Rigidbody2D.velocity =
+                    new Vector2(Character.Body.Rigidbody2D.velocity.x, wallSlideSpeed);
 
-        /************************************************************************************************************************/
+        }
 
         public override float MovementSpeedMultiplier => 1;
 
-        /*************/
     }
+
 }

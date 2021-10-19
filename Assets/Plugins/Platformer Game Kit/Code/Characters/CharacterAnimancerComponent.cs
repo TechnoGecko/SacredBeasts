@@ -4,11 +4,9 @@
 
 using Animancer;
 using System.Collections.Generic;
-using PlatformerGameKit;
-using PlatformerGameKit.Characters.States;
 using UnityEngine;
 
-namespace Characters
+namespace PlatformerGameKit.Characters
 {
     /// <summary>An <see cref="AnimancerComponent"/> which also manages a <see cref="SpriteRenderer"/> and hit boxes.</summary>
     /// <remarks>
@@ -82,7 +80,7 @@ namespace Characters
         }
 
         /// <summary>
-        /// Updates the <see cref="Facing"/> if the current state <see cref="CharacterState.CanTurn"/>.
+        /// Updates the <see cref="Facing"/> if the current state <see cref="States.CharacterState.CanTurn"/>.
         /// </summary>
         private void Update()
         {

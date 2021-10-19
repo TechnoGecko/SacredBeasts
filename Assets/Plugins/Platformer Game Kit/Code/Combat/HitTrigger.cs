@@ -5,7 +5,6 @@
 using Animancer;
 using PlatformerGameKit.Characters;
 using System.Collections.Generic;
-using Characters;
 using UnityEngine;
 
 namespace PlatformerGameKit
@@ -97,7 +96,7 @@ namespace PlatformerGameKit
         public static HitTrigger Activate(Character character, HitData data, bool flipX, HashSet<Hit.ITarget> ignore)
         {
             AnimancerUtilities.Assert(character != null,
-                $"{nameof(global::Characters.Character)} is null.");
+                $"{nameof(Characters.Character)} is null.");
             AnimancerUtilities.Assert(data != null,
                 $"{nameof(HitData)} is null.");
             AnimancerUtilities.Assert(data.Area != null,
@@ -258,9 +257,9 @@ namespace PlatformerGameKit
                 return;
 
             AnimancerUtilities.Assert(Character != null,
-                $"{nameof(global::Characters.Character)} has been destroyed but didn't release its {nameof(HitTrigger)}.");
+                $"{nameof(Characters.Character)} has been destroyed but didn't release its {nameof(HitTrigger)}.");
             AnimancerUtilities.Assert(Character.gameObject.activeInHierarchy,
-                $"{nameof(global::Characters.Character)} is inactive but didn't release its {nameof(HitTrigger)}.");
+                $"{nameof(Characters.Character)} is inactive but didn't release its {nameof(HitTrigger)}.");
 
             var hit = new Hit(Character.transform, Character.Health.Team, Data.Damage, Ignore);
             hit.TryHitComponent(collider);
@@ -324,6 +323,5 @@ namespace PlatformerGameKit
         /************************************************************************************************************************/
 #endif
         /************************************************************************************************************************/
-        
     }
 }
