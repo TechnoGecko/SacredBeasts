@@ -10,8 +10,8 @@ namespace Characters
     {
         [Header("Physics")] [SerializeField] private float bootyWeight = 0.7f;
         [SerializeField] float variableJump = 1.2f;
-        public float linearDrag = 5f;
-        public float defaultGravity = 1.5f;
+        public float linearDrag = 4f;
+        public float defaultGravity = 1f;
         public float fallSpeed = -10f;
 
         [SerializeField] private LayerMask platformLayerMask;
@@ -80,6 +80,7 @@ namespace Characters
 
         private void Awake()
         {
+            _Rigidbody2D.sharedMaterial.friction = 0f;
             _TerrainFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         }
 
@@ -93,6 +94,8 @@ namespace Characters
             _Velocity = Rigidbody2D.velocity;
             _VerticalVelocity = _Velocity.y;
             _HorizontalVelocity = _Velocity.x;
+            
+            
         }
 
         public void GroundCheck()
@@ -171,7 +174,7 @@ namespace Characters
 
         void ModifyPhysics()
         {
-            
+             
             var direction = _Character.InputDirection;
 
 
@@ -180,14 +183,16 @@ namespace Characters
 
             if (IsGrounded)
             {
-                
+
+
                 if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
                 {
                     _Rigidbody2D.drag = linearDrag;
-                    _Rigidbody2D.sharedMaterial.friction += 2f;
+                    _Rigidbody2D.sharedMaterial.friction = 1.2f;
                 }
                 else
                 {
+                   _Rigidbody2D.sharedMaterial.friction = 0f;
                     _Rigidbody2D.drag = 0f;
                 }
 

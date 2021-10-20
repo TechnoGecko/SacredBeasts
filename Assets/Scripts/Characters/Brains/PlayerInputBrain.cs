@@ -25,6 +25,12 @@ namespace Characters.Brains
         [SerializeField]private bool _IsHoldingJump;
         public bool IsHoldingJump => _IsHoldingJump;
 
+        private float _JumpTimer;
+        public float JumpTimer => _JumpTimer;
+
+        private float _JumpDelay = 0.25f;
+        
+
         
 
         
@@ -36,7 +42,10 @@ namespace Characters.Brains
             
             if (_Jump != null)
             {
-                if (Input.GetButtonDown(_JumpButton) && Character.StateMachine.TrySetState(_Jump))
+                if (Input.GetButtonDown(_JumpButton))
+                    _JumpTimer = Time.time + _JumpDelay;
+                
+                if (_JumpTimer > Time.time && Character.StateMachine.TrySetState(_Jump))
                     _CurrentJumpState = Character.StateMachine.CurrentState;
 
                 if (_CurrentJumpState == Character.StateMachine.CurrentState &&

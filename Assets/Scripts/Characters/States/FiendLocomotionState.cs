@@ -35,11 +35,10 @@ namespace Characters.States
             base.OnEnterState();
             Character.Animancer.Play(CurrentAnimation);
 
-            if (Character.Body.IsGrounded && Character.InitialVelocity.x != 0)
+            /*if (Character.Body.IsGrounded && Character.InitialVelocity.x != 0)
             {
-                Character.Body.Rigidbody2D.velocity = new Vector2(Character.InitialVelocity.x, 0);
-                Character.InitialVelocity = new Vector2(0, 0);
-            }
+                
+            }*/
         }
 
         public virtual void Update()

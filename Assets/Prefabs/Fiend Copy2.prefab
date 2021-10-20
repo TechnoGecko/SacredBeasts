@@ -176,7 +176,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fc06b95bfde8e8845ba5223d083c78de, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -235,8 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bootyWeight: 0.7
   variableJump: 1.2
-  linearDrag: 2.5
-  defaultGravity: 1.5
+  linearDrag: 5.01
+  defaultGravity: 0.96
   fallSpeed: -10
   platformLayerMask:
     serializedVersion: 2
@@ -268,6 +268,7 @@ MonoBehaviour:
   _Health: {fileID: 97232421}
   _Body: {fileID: 97232422}
   _Brain: {fileID: 97232427}
+  _InitialVelocity: {x: 0, y: 0}
 --- !u!114 &97232433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +535,7 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: 390511ca885f9ee4daca0c994f5f296c, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
-  _MinimumVerticalSpeed: 7
+  _MinimumVerticalSpeed: 4.77
   _MovementSpeedMultiplier: 1
 --- !u!1 &9142248041173962940
 GameObject:

@@ -44,6 +44,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Scripts\Combat\Health.cs" />
+     <Compile Include="Assets\Scripts\Characters\States\Jump\WallJumpState.cs" />
      <Compile Include="Assets\Scripts\Characters\States\CharacterState.cs" />
      <Compile Include="Assets\Scripts\Characters\States\Jump\BaseJumpState.cs" />
      <Compile Include="Assets\Scripts\Characters\States\FiendLocomotionState.cs" />
@@ -51,6 +52,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\Scripts\Characters\States\MultiState.cs" />
      <Compile Include="Assets\Scripts\SkullHandler.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Characters\PlayerBody.cs" />
@@ -93,8 +95,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\Characters\NewCharacter2DController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\Characters\States\Jump\WallJumpState.cs" />
-     <Compile Include="Assets\Scripts\Characters\CharacterMovement.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -834,6 +834,10 @@
       <Project>{4641692f-80b8-133f-02a0-fd9ae17eb21e}</Project>
       <Name>Animancer.Examples</Name>
     </ProjectReference>
+    <ProjectReference Include="PlatformerGameKit.csproj">
+      <Project>{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}</Project>
+      <Name>PlatformerGameKit</Name>
+    </ProjectReference>
     <ProjectReference Include="Animancer.FSM.csproj">
       <Project>{65681676-006b-106c-58d8-6e129a638cb4}</Project>
       <Name>Animancer.FSM</Name>
@@ -841,10 +845,6 @@
     <ProjectReference Include="Animancer.csproj">
       <Project>{5fbf1433-4657-afb6-3be8-fbbf0449cef1}</Project>
       <Name>Animancer</Name>
-    </ProjectReference>
-    <ProjectReference Include="PlatformerGameKit.csproj">
-      <Project>{6bfd9e72-bf0d-7ce8-a312-db0241ca39eb}</Project>
-      <Name>PlatformerGameKit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,39 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using Characters;
-using Characters.States;
 using UnityEngine;
-using Animancer;
 
-public class WallJumpState : BaseJumpState
+namespace Characters.States.Jump
 {
-    
-    [SerializeField] float wallJumpForce = 3.2f;
-    [SerializeField] Vector2 wallJumpAngle = new Vector2(9f, 3.2f);
-    
-    [SerializeField] private ClipTransition _WallJumpAnimation;
-    public ClipTransition WallJumpAnimation => _WallJumpAnimation;
-    public override bool CanEnterState
+    public class WallJumpState : BaseJumpState
     {
-
-        get
+    
+        [SerializeField] float wallJumpForce = 3.2f;
+        [SerializeField] Vector2 wallJumpAngle = new Vector2(9f, 3.2f);
+    
+        //[SerializeField] private ClipTransition _WallJumpAnimation;
+        //public ClipTransition WallJumpAnimation => _WallJumpAnimation;
+        public override bool CanEnterState
         {
-            if (Character.Body.IsGrounded ||
-                !Character.Body.IsTouchingWall)
+
+            get
+            {
+                if (Character.Body.IsGrounded ||
+                    !Character.Body.IsTouchingWall)
+                    return false;
+
+                if (Character.Body.IsTouchingWall && !Character.Body.IsGrounded)
+                    return true;
+
                 return false;
-
-            if (Character.Body.IsTouchingWall && !Character.Body.IsGrounded)
-                return true;
-
-            return false;
+            }
         }
-    }
 
-    public override void OnEnterState()
-    {
-        Character.Body.Rigidbody2D.velocity = new Vector2(Character.Body.HorizontalVelocity, 0);
-        Character.Body.Rigidbody2D.AddForce(new Vector2(wallJumpForce * Character.Body.WallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y));
-        Character.Animancer.Play(_WallJumpAnimation);
-    }
+        public override void OnEnterState()
+        {
+            base.OnEnterState();
+            Character.Body.Rigidbody2D.velocity = new Vector2(Character.Body.HorizontalVelocity, 0);
+            Character.Body.Rigidbody2D.AddForce(new Vector2(wallJumpForce * Character.Body.WallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y));
+        
+        }
     
+    }
 }

@@ -38,7 +38,27 @@ namespace Characters
             set => _InputDirection = value;
         }
 
-        private Vector2 _InitialVelocity;
+        private bool _CanJump;
+
+        private bool _LandingFromJump;
+        public bool LandingFromJump { get; set; }
+
+        private bool _HasJumped;
+        public bool HasJumped { get; set; }
+
+        public bool CanJump
+        {
+            get => _CanJump;
+
+            set
+            {
+                
+            }
+        }
+
+
+
+            [SerializeField] private Vector2 _InitialVelocity;
 
         public Vector2 InitialVelocity
         {

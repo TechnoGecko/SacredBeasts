@@ -43,6 +43,8 @@ namespace Characters.States
         {
             base.OnEnterState();
 
+            Character.HasJumped = true;
+
             Character.InitialVelocity = Character.Body.Velocity;
 
             Character.Body.Rigidbody2D.velocity = new Vector2(Character.Body.Rigidbody2D.velocity.x, 0);
@@ -50,6 +52,8 @@ namespace Characters.States
 
             Character.Animancer.Play(_Animation);
         }
+
+        
         
         
 

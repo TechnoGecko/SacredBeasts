@@ -38,16 +38,25 @@ namespace Characters.States
         {
             get
             {
-                if (Character.MovementDirection.x == 0 ||
+
+                if (Character.Body.IsTouchingWall && !Character.Body.IsGrounded && Character.Body.Velocity.y < 0)
+                    return true;
+
+                return false;
+                /*if (Character.MovementDirection.x == 0 ||
                     Character.Body.IsGrounded ||
-                    Character.Body.VerticalVelocity > 0)
+                    Character.Body.Velocity.y > 0)
                     return false;
+
+                
 
                 var filter = Character.Body.TerrainFilter;
                 var angle = Character.MovementDirection.x > 0 ? 180 : 0;
                 filter.SetNormalAngle(angle - _Angle, angle + _Angle);
                 var count = Character.Body.Rigidbody2D.GetContacts(filter, PlatformerUtilities.OneContact);                         
                 return count > 0;
+                Debug.Log($"nameof(count)");*/
+
             }
         }
 
@@ -58,9 +67,9 @@ namespace Characters.States
 
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-            if (Character.Body.VerticalVelocity < 0)
+            
                 Character.Body.Rigidbody2D.velocity =
                     new Vector2(Character.Body.Rigidbody2D.velocity.x, wallSlideSpeed);
 
