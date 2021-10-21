@@ -39,10 +39,10 @@ namespace Characters.States
             get
             {
 
-                if (Character.Body.IsTouchingWall && !Character.Body.IsGrounded && Character.Body.Velocity.y < 0)
-                    return true;
+                if (!Character.Body.IsTouchingWall && Character.Body.IsGrounded && Character.Body.Velocity.y < 0)
+                    return false;
 
-                return false;
+                return true;
                 /*if (Character.MovementDirection.x == 0 ||
                     Character.Body.IsGrounded ||
                     Character.Body.Velocity.y > 0)
@@ -64,6 +64,8 @@ namespace Characters.States
         {
             base.OnEnterState();
             Character.Animancer.Play(_Animation);
+            FixedUpdate();
+            Debug.Log("Wallslide state entered");
 
         }
 

@@ -176,7 +176,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: fc06b95bfde8e8845ba5223d083c78de, type: 2}
+  m_Material: {fileID: 6200000, guid: 37c88dc9dfb6cd244ad1d31f3344f114, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -235,15 +235,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bootyWeight: 0.7
   variableJump: 1.2
-  linearDrag: 5.01
-  defaultGravity: 0.96
+  linearDrag: 4
+  defaultGravity: 1
   fallSpeed: -10
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 8
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   _Collider: {fileID: 8637991827380969955}
   _Rigidbody2D: {fileID: 340102782557266173}
   _TouchingWallRight: 0
@@ -282,7 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Character: {fileID: 97232423}
-  runSpeed: 10
+  _RunSpeed: 10
+  _MaxSpeed: 5
+  _FallSpeed: -10
 --- !u!1 &5232318857620909400
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,24 +337,15 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: b083dc8d5de263b4c9ca02302dd00430, type: 2}
+    _Clip: {fileID: 7400000, guid: 9f0fc037fcd7ca549b2813e1362a4625, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
   _Inertia: 0.25
   _JumpForce: 10.5
   _BootyWeight: 0.7
   _VariableJump: 1.2
-  wallJumpForce: 3.2
-  wallJumpAngle: {x: 9, y: 3.2}
-  _WallJumpAnimation:
-    _FadeDuration: 0
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: 0
+  wallJumpForce: 40
+  wallJumpAngle: {x: 11, y: 33}
 --- !u!114 &97232425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +365,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: b083dc8d5de263b4c9ca02302dd00430, type: 2}
+    _Clip: {fileID: 7400000, guid: 9f0fc037fcd7ca549b2813e1362a4625, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
   _Inertia: 0.25
@@ -408,7 +401,6 @@ GameObject:
   - component: {fileID: 97232416}
   - component: {fileID: 97232418}
   - component: {fileID: 97232428}
-  - component: {fileID: 97232429}
   m_Layer: 7
   m_Name: Idle States
   m_TagString: Untagged
@@ -467,7 +459,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: d66b595463cd83a45835a1aaf6efa4a2, type: 2}
+    _Clip: {fileID: 7400000, guid: 26fb2bf5812a5b045bf546096cff9e6b, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
 --- !u!114 &97232418
@@ -513,30 +505,6 @@ MonoBehaviour:
   _Angle: 40
   _Friction: 8
   _RunFriction: 12
---- !u!114 &97232429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7037215049000709381}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1fcd8a69254dde488e7afafebc2e2f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Character: {fileID: 97232423}
-  _Animation:
-    _FadeDuration: 0
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: 390511ca885f9ee4daca0c994f5f296c, type: 2}
-    _Speed: 1
-    _NormalizedStartTime: 0
-  _MinimumVerticalSpeed: 4.77
-  _MovementSpeedMultiplier: 1
 --- !u!1 &9142248041173962940
 GameObject:
   m_ObjectHideFlags: 0

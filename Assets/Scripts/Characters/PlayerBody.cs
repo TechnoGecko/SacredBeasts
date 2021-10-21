@@ -9,7 +9,7 @@ namespace Characters
     public class PlayerBody : MonoBehaviour
     {
         [Header("Physics")] [SerializeField] private float bootyWeight = 0.7f;
-        [SerializeField] float variableJump = 1.2f;
+        [SerializeField] float variableJump = 2f;
         public float linearDrag = 4f;
         public float defaultGravity = 1f;
         public float fallSpeed = -10f;
