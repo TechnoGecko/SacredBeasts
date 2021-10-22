@@ -357,6 +357,8 @@
 "Assets/Scripts/Characters/NewCharacter2DController.cs"
 "Assets/Scripts/Characters/PlatformContact.cs"
 "Assets/Scripts/Characters/PlayerBody.cs"
+"Assets/Scripts/Characters/States/Attack/AttackState.cs"
+"Assets/Scripts/Characters/States/Attack/PlayerAttackState.cs"
 "Assets/Scripts/Characters/States/CharacterState.cs"
 "Assets/Scripts/Characters/States/FiendIdleState.cs"
 "Assets/Scripts/Characters/States/FiendLocomotionState.cs"
