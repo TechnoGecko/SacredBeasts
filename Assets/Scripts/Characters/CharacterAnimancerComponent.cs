@@ -1,7 +1,8 @@
 using UnityEngine;
 using Animancer;
 using System.Collections.Generic;
-using PlatformerGameKit;
+using Hit = Combat.Hit;
+using HitData = Combat.HitData;
 using HitTrigger = Combat.HitTrigger;
 
 
@@ -76,7 +77,7 @@ namespace Characters
         private HashSet<Hit.ITarget> _IgnoreHits;
 
 
-        private void AddHitBox(HitData data)
+        public void AddHitBox(HitData data)
         {
             if (_IgnoreHits == null)
             {

@@ -1,6 +1,8 @@
 using System;
 using PlatformerGameKit;
 using UnityEngine;
+using Combat;
+
 
 namespace Characters.States.Attack
 {
@@ -35,9 +37,8 @@ namespace Characters.States.Attack
                 Character.StateMachine.ForceSetDefaultState();
         }
 
-        
-        
-        private void OnEnterState()
+
+        public override void OnEnterState()
         {
             base.OnEnterState();
             _CurrentIndex = 0;

@@ -18,6 +18,8 @@ namespace Characters
 
         [SerializeField] private CharacterState _Idle;
 
+        public CharacterState Idle => _Idle;
+
         [SerializeField] private Health _Health;
         public Health Health => _Health;
 

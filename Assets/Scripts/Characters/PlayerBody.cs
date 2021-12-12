@@ -18,7 +18,7 @@ namespace Characters
         [SerializeField] private LayerMask wallLayerMask;
 
         [SerializeField] private BoxCollider2D _Collider;
-        public BoxCollider2D Collide => _Collider;
+        public BoxCollider2D Collider => _Collider;
 
         [SerializeField] private Rigidbody2D _Rigidbody2D;
         public Rigidbody2D Rigidbody2D => _Rigidbody2D;
@@ -40,7 +40,7 @@ namespace Characters
         [SerializeField] private Character _Character;
 
 
-        [FormerlySerializedAs("_isGrounded")] [SerializeField]
+        [SerializeField]
         private bool _IsGrounded;
 
         public bool IsGrounded
@@ -56,6 +56,14 @@ namespace Characters
                 OnGroundedChanged?.Invoke(value);
             }
         }
+        public float Rotation
+        {
+            get => 0;// _Rigidbody.rotation;
+            set => throw new NotSupportedException("Rotation is not supported.");// _Rigidbody.rotation = value;
+        }
+
+        /// <summary>The acceleration that gravity is currently applying to this body.</summary>
+        public virtual Vector2 Gravity => Physics2D.gravity * _Rigidbody2D.gravityScale;
 
         public event Action<bool> OnGroundedChanged;
 
@@ -72,6 +80,12 @@ namespace Characters
 
         private float _VerticalVelocity;
         public float VerticalVelocity => _VerticalVelocity;
+        
+        public Vector2 Position
+        {
+            get => _Rigidbody2D.position;
+            set => _Rigidbody2D.position = value;
+        }
 
 
         private ContactFilter2D _TerrainFilter;
@@ -220,6 +234,12 @@ namespace Characters
 
 
 
+        }
+        
+        public virtual float StepHeight
+        {
+            get => 0;
+            set => throw new NotSupportedException($"Can't set {GetType().FullName}.{nameof(StepHeight)}.");
         }
     }
 }

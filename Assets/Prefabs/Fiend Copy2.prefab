@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937667036449774464}
   - component: {fileID: 97232427}
+  - component: {fileID: 1305527306}
   m_Layer: 7
   m_Name: Brain and Actions
   m_TagString: Untagged
@@ -554,5 +555,44 @@ MonoBehaviour:
   _XAxisName: Horizontal
   _YAxisName: Vertical
   _Jump: {fileID: 97232426}
-  _Attack: {fileID: 0}
+  _Attack: {fileID: 1305527306}
   _IsHoldingJump: 0
+--- !u!114 &1305527306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142248041173962940}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e1ea4cf6ad6c2479788ca86f4c15f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 97232423}
+  _GroundAnimations:
+  - _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: acb9d78a4271efd4c8a0dd95ce2002aa, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    _Hits:
+    - _StartTime: 0.25
+      _EndTime: 0.34
+      _Damage: 0
+      _Area:
+      - {x: 0.37620184, y: 0.10687551}
+      - {x: 0.26077625, y: -0.31848902}
+      - {x: 1.0431049, y: -0.087637916}
+      - {x: 1.1884557, y: 0.20306346}
+    - _StartTime: 0.34
+      _EndTime: 0.42
+      _Damage: 0
+      _Area:
+      - {x: 0.37620184, y: 0.10687551}
+      - {x: 0.6840033, y: 0.006412536}
+      - {x: 0.29070142, y: -0.40826446}
+  _GroundUpAnimations: []

@@ -4,7 +4,10 @@
 
 using System;
 using PlatformerGameKit;
+
 using UnityEngine;
+using Utilities;
+
 
 namespace Combat
 {
@@ -34,7 +37,7 @@ namespace Combat
         [SerializeField]
         private Team _Team;
 
-        /// <summary>[<see cref="ITeam"/>] The <see cref="Platformer.Team"/> this object is on.</summary>
+        /// <summary>[<see cref="ITeam"/>] The <see cref="Combat.Team"/> this object is on.</summary>
         public Team Team => _Team;
 
         /************************************************************************************************************************/
