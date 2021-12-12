@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +11,7 @@ namespace Characters
     {
         [Header("Physics")] [SerializeField] private float bootyWeight = 0.7f;
         [SerializeField] float variableJump = 2f;
-        public float linearDrag = 4f;
+        public float linearDrag = 8f;
         public float defaultGravity = 1f;
         public float fallSpeed = -10f;
 
@@ -34,8 +35,14 @@ namespace Characters
         [SerializeField] private bool _IsTouchingWall;
 
         public bool IsTouchingWall => _IsTouchingWall;
-        
-        
+
+        [SerializeField] private bool _IsStopping;
+
+        public bool IsStopping => _IsStopping;
+
+        [SerializeField] private bool _IsRunning;
+
+        public bool IsRunning => _IsRunning;
 
         [SerializeField] private Character _Character;
 
@@ -198,16 +205,28 @@ namespace Characters
             if (IsGrounded)
             {
 
+                if (Mathf.Abs(direction.x) > .1f)
+                {
+                    _IsRunning = true;
+                }
+                
 
                 if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
                 {
-                    _Rigidbody2D.drag = linearDrag;
-                    _Rigidbody2D.sharedMaterial.friction = 1.2f;
+                   _Rigidbody2D.drag = linearDrag;
+                   _Rigidbody2D.sharedMaterial.friction = 4f;
+
+                   if (_IsRunning)
+                   {
+                       StartCoroutine(Stop());
+                   }
                 }
                 else
                 {
                    _Rigidbody2D.sharedMaterial.friction = 0f;
                     _Rigidbody2D.drag = 0f;
+
+                    _IsStopping = false;
                 }
 
                 _Rigidbody2D.gravityScale = 0;
@@ -215,7 +234,7 @@ namespace Characters
             else
             {
                 _Rigidbody2D.gravityScale = defaultGravity;
-                _Rigidbody2D.drag = linearDrag * 0.15f;
+                _Rigidbody2D.drag = linearDrag * 0.07f;
                 if (_Rigidbody2D.velocity.y < fallSpeed)
                 {
                     _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, fallSpeed);
@@ -241,5 +260,19 @@ namespace Characters
             get => 0;
             set => throw new NotSupportedException($"Can't set {GetType().FullName}.{nameof(StepHeight)}.");
         }
+
+        IEnumerator Stop()
+        {
+            _IsStopping = true;
+            _IsRunning = false;
+
+            yield return new WaitForSeconds(.45f);
+
+            _IsStopping = false;
+
+            yield break;
+        }
     }
+    
+    
 }

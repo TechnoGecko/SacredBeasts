@@ -130,6 +130,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 97232416, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Stop._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: a52eb916e7ce16544aa932564bb02e1c, type: 2}
+    - target: {fileID: 97232416, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Stop._Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232416, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Stop._NormalizedStartTime
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Collider
+      value: 
+      objectReference: {fileID: 994130255}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Character
+      value: 
+      objectReference: {fileID: 994130252}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: linearDrag
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Rigidbody2D
+      value: 
+      objectReference: {fileID: 994130254}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: variableJump
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: wallLayerMask.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: platformLayerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2179228854332015548, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: m_Name
       value: Fiend Copy2
@@ -325,6 +365,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994130252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 97232423, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+  m_PrefabInstance: {fileID: 97232411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7401cbfe91b3d244b122887569c6703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &994130254 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 340102782557266173, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+  m_PrefabInstance: {fileID: 97232411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &994130255 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8637991827380969955, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+  m_PrefabInstance: {fileID: 97232411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1272880057
 GameObject:
   m_ObjectHideFlags: 0

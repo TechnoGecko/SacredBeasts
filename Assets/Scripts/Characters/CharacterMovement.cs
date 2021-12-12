@@ -44,6 +44,8 @@ namespace Characters
             {
                 Character.Body.Rigidbody2D.velocity = new Vector2(Mathf.Sign(Character.Body.Velocity.x) * _MaxSpeed, Character.Body.Rigidbody2D.velocity.y);
             }
+            
+            
 
             
             

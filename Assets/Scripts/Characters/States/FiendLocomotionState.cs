@@ -14,6 +14,9 @@ namespace Characters.States
         [SerializeField] private ClipTransition _Fall;
         public ClipTransition Fall => _Fall;
 
+        [SerializeField] private ClipTransition _Stop;
+
+        public ClipTransition Stop => _Stop;
         
 
         public ClipTransition CurrentAnimation
@@ -25,6 +28,9 @@ namespace Characters.States
 
                 if (Character.MovementDirection.x != 0)
                     return _Run;
+
+                if (Character.Body.IsStopping)
+                    return _Stop;
 
                 return _Idle;
             }
