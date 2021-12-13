@@ -17,24 +17,38 @@ namespace Characters.States
         [SerializeField] private ClipTransition _Stop;
 
         public ClipTransition Stop => _Stop;
+
+        [SerializeField] private ClipTransition _WallSlide;
+        public ClipTransition WallSlide => _WallSlide;
+
+        
+
+        
         
 
         public ClipTransition CurrentAnimation
         {
             get
             {
-                if (!Character.Body.IsGrounded && _Fall.IsValid)
-                    return _Fall;
+
+                if (Character.Body.IsWallSliding)
+                    return _WallSlide;
+
+                if (!Character.Body.IsGrounded && !Character.Body.IsTouchingWall && _Fall.IsValid)
+                        return _Fall;
 
                 if (Character.MovementDirection.x != 0)
                     return _Run;
 
                 if (Character.Body.IsStopping)
                     return _Stop;
-
+                
                 return _Idle;
+                
             }
         }
+
+        
 
         public override void OnEnterState()
         {

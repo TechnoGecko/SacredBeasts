@@ -36,6 +36,18 @@ namespace Characters
 
         public bool IsTouchingWall => _IsTouchingWall;
 
+        [SerializeField] private bool _IsWallSliding;
+
+        public bool IsWallSliding
+        {
+            get => _IsWallSliding;
+
+            set
+            {
+                _IsWallSliding = value;
+            }
+        }
+
         [SerializeField] private bool _IsStopping;
 
         public bool IsStopping => _IsStopping;
@@ -78,6 +90,11 @@ namespace Characters
         private int _WallJumpDirection;
 
         public int WallJumpDirection => _WallJumpDirection;
+        
+
+        [SerializeField] private float wallSlideGravity = .2f;
+
+        [SerializeField] private float maxWallSlideSpeed = 3f;
 
         private Vector2 _Velocity;
         public Vector2 Velocity => _Velocity;
@@ -174,14 +191,18 @@ namespace Characters
             {
                 rayColorRight = Color.red;
                 rayColorLeft = Color.red;
+                
             }
 
+            
+            
             Debug.DrawRay(_Collider.bounds.center, Vector2.right * (_Collider.bounds.extents.x + extraLengthText),
                 rayColorRight);
             Debug.DrawRay(_Collider.bounds.center, Vector2.left * (_Collider.bounds.extents.x + extraLengthText),
                 rayColorLeft);
 
             _IsTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider);
+            _IsWallSliding = _IsTouchingWall && Velocity.y < 0;
             if (raycastHitRight.collider && !raycastHitLeft.collider)
             {
                 _WallJumpDirection = -1;
@@ -218,7 +239,7 @@ namespace Characters
 
                    if (_IsRunning)
                    {
-                       StartCoroutine(Stop());
+                       StartCoroutine(StopRunning());
                    }
                 }
                 else
@@ -234,7 +255,18 @@ namespace Characters
             else
             {
                 _Rigidbody2D.gravityScale = defaultGravity;
-                _Rigidbody2D.drag = linearDrag * 0.07f;
+                             _Rigidbody2D.drag = linearDrag * 0.07f;
+                
+                if(IsWallSliding && !Input.GetButtonDown("Jump"))
+                {
+                    
+                    Rigidbody2D.gravityScale = wallSlideGravity;
+                    if (Rigidbody2D.velocity.y < -maxWallSlideSpeed)
+                    {
+                        _Rigidbody2D.velocity = new Vector2(Rigidbody2D.velocity.x, -maxWallSlideSpeed);
+                    }
+                }
+                
                 if (_Rigidbody2D.velocity.y < fallSpeed)
                 {
                     _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, fallSpeed);
@@ -261,7 +293,7 @@ namespace Characters
             set => throw new NotSupportedException($"Can't set {GetType().FullName}.{nameof(StepHeight)}.");
         }
 
-        IEnumerator Stop()
+        IEnumerator StopRunning()
         {
             _IsStopping = true;
             _IsRunning = false;

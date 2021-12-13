@@ -139,6 +139,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 97232416, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _WallSlide._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 305cb922798aaa042ae845922c8ff5a5, type: 2}
+    - target: {fileID: 97232416, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: _Stop._NormalizedStartTime
       value: NaN
       objectReference: {fileID: 0}
@@ -169,6 +173,46 @@ PrefabInstance:
     - target: {fileID: 97232422, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: platformLayerMask.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232424, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232424, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Character
+      value: 
+      objectReference: {fileID: 994130252}
+    - target: {fileID: 97232424, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: wallJumpAngle.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 97232424, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _Animation._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 9f0fc037fcd7ca549b2813e1362a4625, type: 2}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 25293c0f085a1ba4cb3afd17dbc8ea41, type: 2}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _GroundAnimations.Array.data[0]._Clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 5da778988af2af941a127e26e5f89ab5, type: 2}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Events._NormalizedTimes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Events._NormalizedTimes.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2179228854332015548, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: m_Name

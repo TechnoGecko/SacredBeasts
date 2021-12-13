@@ -13,6 +13,8 @@ namespace Characters.States.Attack
         [SerializeField] private AttackTransition[] _GroundUpAnimations;
 
         
+
+        
         private int _CurrentIndex;
         
         private bool _Combo;
@@ -57,10 +59,11 @@ namespace Characters.States.Attack
         {
             get
             {
+
                 if (Character.MovementDirectionY > 0.5f && _GroundUpAnimations.Length > 0)
-                        return _GroundUpAnimations;
-                else
-                    return _GroundAnimations;
+                    return _GroundUpAnimations;
+                
+                return _GroundAnimations;
             }
         }
 

@@ -10,7 +10,7 @@ namespace Characters.States
     {
         [SerializeField] private ClipTransition _Animation;
 
-        [SerializeField] float wallSlideSpeed = -1.1f;
+       
         
         [SerializeField]
         [Range(0, 90)]
@@ -22,6 +22,10 @@ namespace Characters.States
 
         [SerializeField] [Tooltip("The amount of friction used while attempting to run")]
         private float _RunFriction = 12;
+        
+        [SerializeField] private float wallSlideGravity = .2f;
+
+        [SerializeField] private float maxWallSlideSpeed = 3f;
 
 #if UNITY_EDITOR
         protected override void OnValidate()
@@ -36,13 +40,25 @@ namespace Characters.States
 
         public override bool CanEnterState
         {
+            
+            
             get
             {
+                var body = Character.Body;
 
-                if (!Character.Body.IsTouchingWall && Character.Body.IsGrounded && Character.Body.Velocity.y < 0)
+                if (!body.IsWallSliding || !body.IsGrounded)
+                {
+                    
+                    
                     return false;
+                    
+                }
+                
+                
+                
+                return (body.IsTouchingWall);
 
-                return true;
+
                 /*if (Character.MovementDirection.x == 0 ||
                     Character.Body.IsGrounded ||
                     Character.Body.Velocity.y > 0)
@@ -63,18 +79,22 @@ namespace Characters.States
         public override void OnEnterState()
         {
             base.OnEnterState();
-            Character.Animancer.Play(_Animation);
             FixedUpdate();
+            Character.Animancer.Play(_Animation);
             Debug.Log("Wallslide state entered");
+            
 
         }
 
-        public void FixedUpdate()
+        private void FixedUpdate()
         {
+            var body = Character.Body.Rigidbody2D;
             
-                Character.Body.Rigidbody2D.velocity =
-                    new Vector2(Character.Body.Rigidbody2D.velocity.x, wallSlideSpeed);
-
+            body.gravityScale = wallSlideGravity;
+            if (body.velocity.y < -maxWallSlideSpeed)
+            {
+                body.velocity = new Vector2(body.velocity.x, -maxWallSlideSpeed);
+            }
         }
 
         public override float MovementSpeedMultiplier => 1;

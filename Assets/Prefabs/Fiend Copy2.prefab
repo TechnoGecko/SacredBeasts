@@ -249,8 +249,13 @@ MonoBehaviour:
   _TouchingWallRight: 0
   _TouchingWallLeft: 0
   _IsTouchingWall: 0
+  _IsWallSliding: 0
+  _IsStopping: 0
+  _IsRunning: 0
   _Character: {fileID: 97232423}
   _IsGrounded: 0
+  wallSlideGravity: 0.2
+  maxWallSlideSpeed: 3
 --- !u!114 &97232423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,9 +403,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2908651035833698937}
-  - component: {fileID: 97232416}
   - component: {fileID: 97232418}
   - component: {fileID: 97232428}
+  - component: {fileID: 97232416}
   m_Layer: 7
   m_Name: Idle States
   m_TagString: Untagged
@@ -422,6 +427,50 @@ Transform:
   m_Father: {fileID: 4420854661118747908}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97232418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037215049000709381}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdac090bfea07dc4084817f41714e2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 97232423}
+  _AutoInternalTransitions: 0
+  _States:
+  - {fileID: 97232428}
+  - {fileID: 97232416}
+--- !u!114 &97232428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037215049000709381}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089bb09f15bee54aa37b519d76290bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 97232423}
+  _Animation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 305cb922798aaa042ae845922c8ff5a5, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
+  _Angle: 40
+  _Friction: 8
+  _RunFriction: 12
+  wallSlideGravity: 0.2
+  maxWallSlideSpeed: 3
 --- !u!114 &97232416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,49 +511,15 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: 26fb2bf5812a5b045bf546096cff9e6b, type: 2}
     _Speed: 1
     _NormalizedStartTime: NaN
---- !u!114 &97232418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7037215049000709381}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdac090bfea07dc4084817f41714e2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Character: {fileID: 97232423}
-  _AutoInternalTransitions: 0
-  _States:
-  - {fileID: 97232428}
-  - {fileID: 97232416}
---- !u!114 &97232428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7037215049000709381}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d089bb09f15bee54aa37b519d76290bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Character: {fileID: 97232423}
-  _Animation:
+  _Stop:
     _FadeDuration: 0
     _Events:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 305cb922798aaa042ae845922c8ff5a5, type: 2}
+    _Clip: {fileID: 0}
     _Speed: 1
     _NormalizedStartTime: 0
-  wallSlideSpeed: -1.1
-  _Angle: 40
-  _Friction: 8
-  _RunFriction: 12
 --- !u!1 &9142248041173962940
 GameObject:
   m_ObjectHideFlags: 0
