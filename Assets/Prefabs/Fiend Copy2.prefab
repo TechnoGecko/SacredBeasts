@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 97232422}
   - component: {fileID: 97232423}
   - component: {fileID: 97232433}
+  - component: {fileID: 4525232901010950613}
   m_Layer: 7
   m_Name: Fiend Copy2
   m_TagString: Untagged
@@ -234,8 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bootyWeight: 0.7
-  variableJump: 1.2
-  linearDrag: 4
+  variableJump: 2
+  linearDrag: 8
   defaultGravity: 1
   fallSpeed: -10
   platformLayerMask:
@@ -243,7 +244,7 @@ MonoBehaviour:
     m_Bits: 8
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   _Collider: {fileID: 8637991827380969955}
   _Rigidbody2D: {fileID: 340102782557266173}
   _TouchingWallRight: 0
@@ -290,6 +291,19 @@ MonoBehaviour:
   _RunSpeed: 10
   _MaxSpeed: 5
   _FallSpeed: -10
+--- !u!114 &4525232901010950613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179228854332015548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47598389d88a10f47ac8e343121288b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skullCount: {fileID: 0}
 --- !u!1 &5232318857620909400
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +364,7 @@ MonoBehaviour:
   _BootyWeight: 0.7
   _VariableJump: 1.2
   wallJumpForce: 40
-  wallJumpAngle: {x: 11, y: 33}
+  wallJumpAngle: {x: 5, y: 33}
 --- !u!114 &97232425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +531,16 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400000, guid: a52eb916e7ce16544aa932564bb02e1c, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+  _WallSlide:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 305cb922798aaa042ae845922c8ff5a5, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
 --- !u!1 &9142248041173962940
@@ -591,7 +614,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: acb9d78a4271efd4c8a0dd95ce2002aa, type: 2}
+    _Clip: {fileID: 7400000, guid: 5da778988af2af941a127e26e5f89ab5, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
     _Hits:
