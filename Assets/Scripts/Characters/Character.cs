@@ -48,6 +48,11 @@ namespace Characters
         private bool _HasJumped;
         public bool HasJumped { get; set; }
 
+        public bool dashing = false;
+
+        public bool hasDashed;
+        [SerializeField, Range(0,2)] public float dashTimer;
+
         public bool CanJump
         {
             get => _CanJump;

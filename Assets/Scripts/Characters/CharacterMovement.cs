@@ -16,6 +16,8 @@ namespace Characters
 
         [SerializeField] private float _FallSpeed = -10f;
 
+        [SerializeField] private float _dashForce = 10f;
+        
 
         private void FixedUpdate()
         {
@@ -31,6 +33,24 @@ namespace Characters
             {
                 Character.LandingFromJump = true;
             }
+
+            if (Character.dashing)
+            {
+                Vector2 dashDirection;
+                if (Character.Animancer.FacingLeft)
+                {
+                    dashDirection = -transform.right;
+                }
+                else 
+                {
+                    dashDirection = transform.right;
+                }
+                
+                
+                Character.Body.Rigidbody2D.AddForce(dashDirection * _dashForce,
+                    ForceMode2D.Impulse);
+            }
+            
             
             
             

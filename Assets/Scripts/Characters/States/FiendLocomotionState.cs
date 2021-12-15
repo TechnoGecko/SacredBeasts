@@ -21,6 +21,9 @@ namespace Characters.States
         [SerializeField] private ClipTransition _WallSlide;
         public ClipTransition WallSlide => _WallSlide;
 
+        [SerializeField] private ClipTransition _Dash;
+        public ClipTransition Dash => _Dash;
+
         
 
         
@@ -39,6 +42,9 @@ namespace Characters.States
 
                 if (Character.MovementDirection.x != 0)
                     return _Run;
+
+                if (Character.dashing)
+                    return _Dash;
 
                 if (Character.Body.IsStopping)
                     return _Stop;

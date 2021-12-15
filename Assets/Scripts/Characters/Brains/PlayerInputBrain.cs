@@ -1,3 +1,4 @@
+using System.Collections;
 using Characters.States;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Characters.Brains
 
         [SerializeField] private string _YAxisName = "Vertical";
 
+        [SerializeField] private string _DashButtonName = "Fire3";
+
         [Header("Actions")]
         [SerializeField] private CharacterState _Jump;
         [SerializeField] private CharacterState _Attack;
@@ -29,6 +32,9 @@ namespace Characters.Brains
         public float JumpTimer => _JumpTimer;
 
         private float _JumpDelay = 0.25f;
+
+        
+        
         
 
         
@@ -48,6 +54,9 @@ namespace Characters.Brains
                 if (_JumpTimer > Time.time && Character.StateMachine.TrySetState(_Jump))
                     _CurrentJumpState = Character.StateMachine.CurrentState;
 
+                if (Input.GetButtonDown(_DashButtonName))
+                    StartCoroutine(Dash());
+
                 if (_CurrentJumpState == Character.StateMachine.CurrentState &&
                     Input.GetButtonUp(_JumpButton))
                     Character.StateMachine.TrySetDefaultState();
@@ -64,6 +73,17 @@ namespace Characters.Brains
 
             
 
+        }
+
+        private IEnumerator Dash()
+        {
+            Character.dashing = true;
+
+            yield return new WaitForSeconds(Character.dashTimer);
+
+            Character.dashing = false;
+
+            yield break;
         }
     }
     

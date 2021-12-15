@@ -12,6 +12,10 @@ namespace Characters.States.Attack
 
         [SerializeField] private AttackTransition[] _GroundUpAnimations;
 
+        [SerializeField] private AttackTransition[] _AirAnimations;
+
+       [SerializeField] private AttackTransition[] _AirUpAnimations;
+
         
 
         
@@ -25,12 +29,14 @@ namespace Characters.States.Attack
             Action onEnd = OnAnimationEnd;
 
             for (int i = 0; i < _GroundAnimations.Length; i++)
-            {
                 _GroundAnimations[i].Events.OnEnd += onEnd;
 
-
-                Character.Body.OnGroundedChanged += OnGroundedChanged;
-            }
+            for (int i = 0; i < _AirAnimations.Length; i++)
+                _AirAnimations[i].Events.OnEnd += onEnd;
+                
+                
+            
+            Character.Body.OnGroundedChanged += OnGroundedChanged;
         }
 
         private void OnGroundedChanged(bool isGrounded)
@@ -59,11 +65,20 @@ namespace Characters.States.Attack
         {
             get
             {
-
-                if (Character.MovementDirectionY > 0.5f && _GroundUpAnimations.Length > 0)
-                    return _GroundUpAnimations;
-                
-                return _GroundAnimations;
+                if (Character.Body.IsGrounded)
+                {
+                    if (Character.MovementDirectionY > 0.5f && _GroundUpAnimations.Length > 0)
+                        return _GroundUpAnimations;
+                    else
+                        return _GroundAnimations;
+                }
+                else
+                {
+                    if (Character.MovementDirectionY > 0.5f && _AirUpAnimations.Length > 0)
+                        return _AirUpAnimations;
+                    else
+                        return _AirAnimations;
+                }
             }
         }
 
