@@ -16,7 +16,9 @@ namespace Characters
 
         [SerializeField] private float _FallSpeed = -10f;
 
-        [SerializeField] private float _dashForce = 10f;
+        [SerializeField] private float _dashForce = 6f;
+
+        
         
 
         private void FixedUpdate()
@@ -34,7 +36,7 @@ namespace Characters
                 Character.LandingFromJump = true;
             }
 
-            if (Character.dashing)
+            if (Character.dashing & Character.canDash)
             {
                 Vector2 dashDirection;
                 if (Character.Animancer.FacingLeft)

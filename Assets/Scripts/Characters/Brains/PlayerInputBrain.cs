@@ -19,6 +19,8 @@ namespace Characters.Brains
 
         [SerializeField] private string _DashButtonName = "Fire3";
 
+        
+        
         [Header("Actions")]
         [SerializeField] private CharacterState _Jump;
         [SerializeField] private CharacterState _Attack;
@@ -82,6 +84,14 @@ namespace Characters.Brains
             yield return new WaitForSeconds(Character.dashTimer);
 
             Character.dashing = false;
+
+            Character.canDash = false;
+            
+
+            yield return new WaitForSeconds(Character.dashTimeLimit);
+
+            Character.canDash = true;
+            
 
             yield break;
         }

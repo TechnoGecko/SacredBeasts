@@ -49,9 +49,22 @@ namespace Characters
         public bool HasJumped { get; set; }
 
         public bool dashing = false;
+        
+       [SerializeField] private bool _canDash = true;
+
+       public bool canDash
+       {
+           get { return _canDash;}
+
+           set { _canDash = value; }
+       }
 
         public bool hasDashed;
-        [SerializeField, Range(0,2)] public float dashTimer;
+        [SerializeField, Range(0,2)] public float dashTimer = 0.2f;
+
+        [SerializeField] private float _dashTimeLimit = 3f;
+        
+        public float dashTimeLimit => _dashTimeLimit;
 
         public bool CanJump
         {

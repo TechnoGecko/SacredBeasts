@@ -40,11 +40,13 @@ namespace Characters.States
                 if (!Character.Body.IsGrounded && !Character.Body.IsTouchingWall && _Fall.IsValid)
                         return _Fall;
 
+                if (Character.dashing && Character.canDash)
+                    return _Dash;
+                
                 if (Character.MovementDirection.x != 0)
                     return _Run;
 
-                if (Character.dashing)
-                    return _Dash;
+                
 
                 if (Character.Body.IsStopping)
                     return _Stop;
