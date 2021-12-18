@@ -408,6 +408,9 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+     <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+     </Reference>
      <Reference Include="netstandard">
      <HintPath>C:/Users/Blast Bleat/Desktop/Game Dev/2021.1.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
      </Reference>
@@ -889,6 +892,18 @@
     <ProjectReference Include="Animancer.csproj">
       <Project>{5fbf1433-4657-afb6-3be8-fbbf0449cef1}</Project>
       <Name>Animancer</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{1b72c9a2-1f88-4c9f-a293-efbf0fb17fcc}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{eceea855-5090-b6df-c916-7cd8bfb6d99b}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{4d64a195-e947-f5c7-6eda-0352d6d49cbe}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

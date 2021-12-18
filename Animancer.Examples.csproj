@@ -399,6 +399,9 @@
      <Reference Include="unityplastic">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
      </Reference>
+     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+     <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+     </Reference>
      <Reference Include="netstandard">
      <HintPath>C:/Users/Blast Bleat/Desktop/Game Dev/2021.1.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
      </Reference>
