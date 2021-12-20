@@ -1,29 +1,11 @@
 ﻿// Platformer Game Kit // https://kybernetik.com.au/platformer // Copyright 2021 Kybernetik //
 
 using System;
-using Animancer;
-using Combat;
+using Utilities;
 using UnityEngine;
-using PlatformerGameKit;
 using Strings = PlatformerGameKit.Strings;
 
-namespace Utilities
-{
-    public static partial class PlatformerUtilities
-    {
-        /************************************************************************************************************************/
-
-        public static bool IsAlly(this Team team, Team other)
-            => team != null && (team == other || Array.IndexOf(team.Allies, other) >= 0);
-
-        public static bool IsEnemy(this Team team, Team other)
-            => !team.IsAlly(other);
-
-        /************************************************************************************************************************/
-    }
-}
-
-namespace Combat
+namespace Scripts
 {
     /// <summary>A <see cref="ScriptableObject"/> representing the relationships between factions.</summary>
     /// <remarks>
@@ -48,6 +30,18 @@ namespace Combat
         [SerializeField, TextArea]
         private string _EditorDescription;
 #endif
+
+        /************************************************************************************************************************/
+    }
+    public static partial class PlatformerUtilities
+    {
+        /************************************************************************************************************************/
+
+        public static bool IsAlly(this Team team, Team other)
+            => team != null && (team == other || Array.IndexOf(team.Allies, other) >= 0);
+
+        public static bool IsEnemy(this Team team, Team other)
+            => !team.IsAlly(other);
 
         /************************************************************************************************************************/
     }

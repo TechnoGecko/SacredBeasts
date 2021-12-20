@@ -181,7 +181,7 @@ namespace Combat
                     hit.Area = GetDefaultArea(details, index);
                 }
 
-                PlatformerUtilities.InsertAt(ref hits, index, hit);
+                Scripts.PlatformerUtilities.InsertAt(ref hits, index, hit);
             }
 
             /************************************************************************************************************************/
@@ -283,12 +283,12 @@ namespace Combat
                     if (currentEvent.type == EventType.MouseDown && area.Length > 3)
                     {
                         TransitionPreviewDetails.Property.RecordUndo("Remove Hit Point");
-                        PlatformerUtilities.RemoveAt(ref area, closestPointIndex);
+                        Scripts.PlatformerUtilities.RemoveAt(ref area, closestPointIndex);
                         currentEvent.Use();
                     }
                     else
                     {
-                        PlatformerUtilities.DoHandle2D(area[closestPointIndex], 2);
+                        Scripts.PlatformerUtilities.DoHandle2D(area[closestPointIndex], 2);
                     }
                 }
                 else
@@ -302,16 +302,16 @@ namespace Combat
                         point = transform.InverseTransformPoint(point);
 
                         if (Event.current.control)
-                            point = PlatformerUtilities.RoundToPixel(transform.gameObject, point);
+                            point = Scripts.PlatformerUtilities.RoundToPixel(transform.gameObject, point);
 
                         TransitionPreviewDetails.Property.RecordUndo("Add Hit Point");
-                        PlatformerUtilities.InsertAt(ref closestHit.Area, closestPointIndex + 1, point);
+                        Scripts.PlatformerUtilities.InsertAt(ref closestHit.Area, closestPointIndex + 1, point);
 
                         currentEvent.Use();
                     }
                     else
                     {
-                        PlatformerUtilities.DoHandle2D(closestLineIntersect, 1.5f);
+                        Scripts.PlatformerUtilities.DoHandle2D(closestLineIntersect, 1.5f);
                     }
                 }
 
@@ -344,12 +344,12 @@ namespace Combat
 
                     EditorGUI.BeginChangeCheck();
 
-                    point = PlatformerUtilities.DoHandle2D(point);
+                    point = Scripts.PlatformerUtilities.DoHandle2D(point);
 
                     if (EditorGUI.EndChangeCheck())
                     {
                         if (Event.current.control)
-                            point = PlatformerUtilities.RoundToPixel(transform.gameObject, point);
+                            point = Scripts.PlatformerUtilities.RoundToPixel(transform.gameObject, point);
 
                         TransitionPreviewDetails.Property.RecordUndo("Edit Hit Area");
                         area[i] = transform.InverseTransformPoint(point);

@@ -3,6 +3,7 @@
 using Animancer.Units;
 using UnityEngine;
 using PlatformerGameKit;
+using Scripts;
 
 namespace Utilities
 {
@@ -73,9 +74,9 @@ namespace Utilities
         /// <summary>[Editor-Only] Ensures that all fields have valid values and finds missing components nearby.</summary>
         private void OnValidate()
         {
-            PlatformerUtilities.NotNegative(ref _Frequency);
+            Scripts.PlatformerUtilities.NotNegative(ref _Frequency);
             _MagnitudeExponent = Mathf.Clamp(_MagnitudeExponent, 0.2f, 5f);
-            PlatformerUtilities.NotNegative(ref _Damping);
+            Scripts.PlatformerUtilities.NotNegative(ref _Damping);
 
             if (_Magnitude <= 0)
                 enabled = false;

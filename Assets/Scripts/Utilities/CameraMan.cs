@@ -3,7 +3,7 @@
 using Animancer;
 using Animancer.Units;
 using UnityEngine;
-using PlatformerGameKit;
+using Scripts;
 using Strings = PlatformerGameKit.Strings;
 
 namespace Utilities
@@ -87,10 +87,10 @@ namespace Utilities
                 }
             }
 
-            PlatformerUtilities.NotNegative(ref _VelocityFactor);
-            PlatformerUtilities.NotNegative(ref _OffsetFactor);
-            PlatformerUtilities.NotNegative(ref _LinearAcceleration);
-            PlatformerUtilities.NotNegative(ref _DynamicAcceleration);
+            Scripts.PlatformerUtilities.NotNegative(ref _VelocityFactor);
+            Scripts.PlatformerUtilities.NotNegative(ref _OffsetFactor);
+            Scripts.PlatformerUtilities.NotNegative(ref _LinearAcceleration);
+            Scripts.PlatformerUtilities.NotNegative(ref _DynamicAcceleration);
 
             if (_Target != null)
             {

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Animancer;
 using Utilities;
-
+using Scripts;
 
 namespace Characters.States
 {
@@ -31,9 +31,9 @@ namespace Characters.States
         protected override void OnValidate()
         {
             base.OnValidate();
-            PlatformerUtilities.Clamp(ref _Angle, 0, 90);
-            PlatformerUtilities.NotNegative(ref _Friction);
-            PlatformerUtilities.NotNegative(ref _RunFriction);
+            Scripts.PlatformerUtilities.Clamp(ref _Angle, 0, 90);
+            Scripts.PlatformerUtilities.NotNegative(ref _Friction);
+            Scripts.PlatformerUtilities.NotNegative(ref _RunFriction);
         }
 #endif
 

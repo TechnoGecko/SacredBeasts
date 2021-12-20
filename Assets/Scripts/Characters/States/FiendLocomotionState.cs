@@ -72,6 +72,8 @@ namespace Characters.States
         public virtual void Update()
         {
             Character.Animancer.Play(CurrentAnimation);
+            
+            
         }
 
         public override float MovementSpeedMultiplier => 1;

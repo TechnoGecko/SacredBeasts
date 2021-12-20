@@ -44,8 +44,8 @@ namespace Utilities
         private void OnValidate()
         {
             gameObject.GetComponentInParentOrChildren(ref _Health);
-            PlatformerUtilities.NotNegative(ref _BaseMagnitude);
-            PlatformerUtilities.NotNegative(ref _ScalingMagnitude);
+            Scripts.PlatformerUtilities.NotNegative(ref _BaseMagnitude);
+            Scripts.PlatformerUtilities.NotNegative(ref _ScalingMagnitude);
         }
 #endif
 

@@ -41,8 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs" />
      <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorGUIx.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs" />
      <Compile Include="Assets\AstarPathfindingProject\PackageTools\Editor\EnumFlagDrawer.cs" />
      <None Include="Assets\AstarPathfindingProject\PackageTools\Editor\PackageToolsEditor.asmdef" />
      <Reference Include="UnityEngine">
@@ -291,6 +291,9 @@
      <Reference Include="Unity.VisualScripting.IonicZip">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
      </Reference>
+     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+     <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+     </Reference>
      <Reference Include="log4netPlastic">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
      </Reference>
@@ -305,9 +308,6 @@
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-     <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>C:/Users/Blast Bleat/Desktop/Coding/MicrobialNightmare/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>

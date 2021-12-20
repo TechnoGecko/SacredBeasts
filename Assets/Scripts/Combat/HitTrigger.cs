@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using Animancer;
 using Characters;
+using Combat;
 using UnityEngine;
 using Strings = PlatformerGameKit.Strings;
 

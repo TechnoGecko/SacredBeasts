@@ -25,10 +25,10 @@ namespace Characters.States
         protected override void OnValidate()
         {
             base.OnValidate();
-            PlatformerUtilities.Clamp(ref _Inertia, 0, 1);
-            PlatformerUtilities.NotNegative(ref _JumpForce);
-            PlatformerUtilities.NotNegative(ref _BootyWeight);
-            PlatformerUtilities.NotNegative(ref _VariableJump);
+            Scripts.PlatformerUtilities.Clamp(ref _Inertia, 0, 1);
+            Scripts.PlatformerUtilities.NotNegative(ref _JumpForce);
+            Scripts.PlatformerUtilities.NotNegative(ref _BootyWeight);
+            Scripts.PlatformerUtilities.NotNegative(ref _VariableJump);
         }
         #endif
 

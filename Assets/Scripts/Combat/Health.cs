@@ -4,9 +4,8 @@
 
 using System;
 using PlatformerGameKit;
-
 using UnityEngine;
-using Utilities;
+using Scripts;
 
 
 namespace Combat
@@ -128,7 +127,7 @@ namespace Combat
 
         /************************************************************************************************************************/
 
-        private int _CurrentHealth;
+        [SerializeField] private int _CurrentHealth;
         public int CurrentHealth
         {
             get => _CurrentHealth;
@@ -179,6 +178,7 @@ namespace Combat
 
         void Hit.ITarget.ReceiveHit(ref Hit hit)
         {
+            Debug.Log(hit);
             CurrentHealth -= hit.damage;
             OnHitReceived?.Invoke(hit);
         }

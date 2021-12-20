@@ -136,9 +136,10 @@ GameObject:
   - component: {fileID: 97232423}
   - component: {fileID: 97232433}
   - component: {fileID: 4525232901010950613}
+  - component: {fileID: 974314329}
   m_Layer: 7
   m_Name: Fiend Copy2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Team: {fileID: 11400000, guid: 2fa926a063af78c428f1a4bf54620da3, type: 2}
   _MaximumHealth: 1
+  _CurrentHealth: 1
 --- !u!114 &97232422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +276,11 @@ MonoBehaviour:
   _Health: {fileID: 97232421}
   _Body: {fileID: 97232422}
   _Brain: {fileID: 97232427}
+  dashing: 0
+  _canDash: 1
+  hasDashed: 0
+  dashTimer: 0.22
+  _dashTimeLimit: 3
   _InitialVelocity: {x: 0, y: 0}
 --- !u!114 &97232433
 MonoBehaviour:
@@ -291,6 +298,7 @@ MonoBehaviour:
   _RunSpeed: 10
   _MaxSpeed: 5
   _FallSpeed: -10
+  _dashForce: 6
 --- !u!114 &4525232901010950613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +312,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skullCount: {fileID: 0}
+--- !u!114 &974314329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179228854332015548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a362cbc0915db264eb761a0e3de4b329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Team: {fileID: 11400000, guid: 38984e13079499f45adf6c83a54b7ddd, type: 2}
+  _MaximumHealth: 204
+  _CurrentHealth: 204
 --- !u!1 &5232318857620909400
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +566,15 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: 305cb922798aaa042ae845922c8ff5a5, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
+  _Dash:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 2ab6870d28d0d294e8ed8c3691b34a1b, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
 --- !u!1 &9142248041173962940
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +624,7 @@ MonoBehaviour:
   _PrimaryAttackButton: Fire1
   _XAxisName: Horizontal
   _YAxisName: Vertical
+  _DashButtonName: Fire3
   _Jump: {fileID: 97232426}
   _Attack: {fileID: 1305527306}
   _IsHoldingJump: 0
@@ -618,19 +651,37 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: 0
     _Hits:
-    - _StartTime: 0.25
-      _EndTime: 0.34
+    - _StartTime: 0.34515634
+      _EndTime: 0.42334092
+      _Damage: 5
+      _Area:
+      - {x: 0.47542068, y: -0.17154355}
+      - {x: -0.29407465, y: -0.06371617}
+      - {x: -0.11272861, y: 0.15193857}
+    - _StartTime: 0.42524788
+      _EndTime: 0.5015255
+      _Damage: 5
+      _Area:
+      - {x: 1.2008048, y: 0.049012426}
+      - {x: 0.44601324, y: 0.024506222}
+      - {x: 0.43621075, y: 0.2842722}
+      - {x: 1.1713972, y: 0.20095105}
+    - _StartTime: 0.50511
+      _EndTime: 0.5837264
       _Damage: 0
       _Area:
-      - {x: 0.37620184, y: 0.10687551}
-      - {x: 0.26077625, y: -0.31848902}
-      - {x: 1.0431049, y: -0.087637916}
-      - {x: 1.1884557, y: 0.20306346}
-    - _StartTime: 0.34
-      _EndTime: 0.42
-      _Damage: 0
-      _Area:
-      - {x: 0.37620184, y: 0.10687551}
-      - {x: 0.6840033, y: 0.006412536}
-      - {x: 0.29070142, y: -0.40826446}
+      - {x: 0.1911485, y: -0.4656182}
+      - {x: 0.7743967, y: 0.23525973}
+      - {x: 0.42640826, y: 0.2548647}
   _GroundUpAnimations: []
+  _AirAnimations:
+  - _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 25293c0f085a1ba4cb3afd17dbc8ea41, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    _Hits: []
+  _AirUpAnimations: []

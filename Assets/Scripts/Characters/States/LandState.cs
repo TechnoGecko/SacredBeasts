@@ -1,9 +1,7 @@
 using Animancer;
 using Animancer.Units;
-using PlatformerGameKit;
-using Unity.VisualScripting;
 using UnityEngine;
-using Utilities;
+
 
 namespace Characters.States
 {
@@ -21,8 +19,8 @@ namespace Characters.States
         protected override void OnValidate()
         {
             base.OnValidate();
-            PlatformerUtilities.NotNegative(ref _MinimumVerticalSpeed);
-            PlatformerUtilities.Clamp(ref _MovementSpeedMultiplier, 0, 1);
+            Scripts.PlatformerUtilities.NotNegative(ref _MinimumVerticalSpeed);
+            Scripts.PlatformerUtilities.Clamp(ref _MovementSpeedMultiplier, 0, 1);
 
             if (GetComponent<Collider2D>() == null)
                 Debug.LogWarning($"{nameof(LandState)} must be on the same {nameof(GameObject)} as a {nameof(Collider2D)}" +

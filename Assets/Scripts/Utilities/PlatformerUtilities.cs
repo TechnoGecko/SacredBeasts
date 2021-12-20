@@ -4,7 +4,7 @@ using Animancer;
 using System;
 using UnityEngine;
 
-namespace Utilities
+namespace Scripts
 {
     /// <summary>Various utility methods used throughout the <see cref="PlatformerGameKit"/>.</summary>
     /// https://kybernetik.com.au/platformer/api/PlatformerGameKit/PlatformerUtilities

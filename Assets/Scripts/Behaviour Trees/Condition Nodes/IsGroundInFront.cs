@@ -66,14 +66,14 @@ namespace PlatformerGameKit.BehaviourTrees
                 if (Physics2D.Raycast(origin, Vector2.down, distance, layers))
                 {
 #if UNITY_EDITOR
-                    PlatformerUtilities.DrawRay(origin, Vector2.down * distance, Color.blue, _DebugLineDuration);
+                    Scripts.PlatformerUtilities.DrawRay(origin, Vector2.down * distance, Color.blue, _DebugLineDuration);
 #endif
                     return true;
                 }
                 else
                 {
 #if UNITY_EDITOR
-                    PlatformerUtilities.DrawRay(origin, Vector2.down * distance, Color.red, _DebugLineDuration);
+                    Scripts.PlatformerUtilities.DrawRay(origin, Vector2.down * distance, Color.red, _DebugLineDuration);
 #endif
                     return false;
                 }

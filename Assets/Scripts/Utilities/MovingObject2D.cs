@@ -54,7 +54,7 @@ namespace Utilities
         private void OnValidate()
         {
             gameObject.GetComponentInParentOrChildren(ref _Rigidbody);
-            PlatformerUtilities.NotNegative(ref _Speed);
+            Scripts.PlatformerUtilities.NotNegative(ref _Speed);
         }
 #endif
 

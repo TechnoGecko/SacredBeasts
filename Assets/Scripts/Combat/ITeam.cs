@@ -2,9 +2,9 @@
 
 using Combat;
 using UnityEngine;
-using Utilities;
+using Scripts;
 
-namespace Utilities
+namespace Scripts
 {
     /// https://kybernetik.com.au/platformer/api/PlatformerGameKit/PlatformerUtilities
     public static partial class PlatformerUtilities
@@ -37,7 +37,7 @@ namespace Utilities
     }
 }
 
-namespace Combat
+namespace Scripts
 {
     /// <summary>An object with a <see cref="PlatformerGameKit.Team"/>.</summary>
     /// <example><code>

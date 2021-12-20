@@ -60,8 +60,8 @@ namespace PlatformerGameKit.BehaviourTrees
                 filter.SetNormalAngle(baseAngle - _WallAngle, baseAngle + _WallAngle);
 
                 var count = Physics2D.BoxCast(
-                    origin, size, character.Body.Rotation, character.MovementDirection, filter, PlatformerUtilities.OneRaycastHit, _Range);
-                PlatformerUtilities.DrawBoxCast(origin, size, character.MovementDirection, Color.red);
+                    origin, size, character.Body.Rotation, character.MovementDirection, filter, Scripts.PlatformerUtilities.OneRaycastHit, _Range);
+                Scripts.PlatformerUtilities.DrawBoxCast(origin, size, character.MovementDirection, Color.red);
                 return count > 0;
             }
         }
