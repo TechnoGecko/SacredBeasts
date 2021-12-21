@@ -18,7 +18,7 @@ namespace Characters
 
         [SerializeField] private float _dashForce = 6f;
 
-        
+        [SerializeField] private float dashSpeed;
         
 
         private void FixedUpdate()
@@ -47,10 +47,13 @@ namespace Characters
                 {
                     dashDirection = transform.right;
                 }
+
+                var rigidbody = Character.Body.Rigidbody2D;
+                rigidbody.velocity = dashDirection * dashSpeed;
                 
-                
-                Character.Body.Rigidbody2D.AddForce(dashDirection * _dashForce,
-                    ForceMode2D.Impulse);
+
+                /*Character.Body.Rigidbody2D.AddForce(dashDirection * _dashForce,
+                    ForceMode2D.Impulse);*/
             }
             
             

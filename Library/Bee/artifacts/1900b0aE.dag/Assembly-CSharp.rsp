@@ -390,6 +390,7 @@
 "Assets/Scripts/Characters/States/FiendIdleState.cs"
 "Assets/Scripts/Characters/States/FiendLocomotionState.cs"
 "Assets/Scripts/Characters/States/FlinchState.cs"
+"Assets/Scripts/Characters/States/IdleState.cs"
 "Assets/Scripts/Characters/States/Jump/BaseJumpState.cs"
 "Assets/Scripts/Characters/States/Jump/WallJumpState.cs"
 "Assets/Scripts/Characters/States/LandState.cs"

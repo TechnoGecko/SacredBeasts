@@ -161,6 +161,110 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._EndTime
+      value: 0.504958
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._EndTime
+      value: 0.59344006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._StartTime
+      value: 0.4302059
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._StartTime
+      value: 0.504958
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _GroundAnimations.Array.data[0]._Hits.Array.data[2]._Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[0].x
+      value: 0.4780378
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[0].y
+      value: -0.402235
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[1].x
+      value: 1.007905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[1].y
+      value: -0.05209571
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[2].x
+      value: 0.8677867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[2].y
+      value: 0.61345464
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[3].x
+      value: 0.17134379
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[0]._Area.Array.data[3].y
+      value: 0.84401286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[0].x
+      value: -0.6334592
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[0].y
+      value: -0.19363245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[1].x
+      value: -0.2798371
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[1].y
+      value: -0.7772801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[2].x
+      value: 0.86818624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[2].y
+      value: -0.7651269
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[3].x
+      value: 0.9220999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _AirAnimations.Array.data[0]._Hits.Array.data[1]._Area.Array.data[3].y
+      value: 0.16717508
+      objectReference: {fileID: 0}
     - target: {fileID: 2179228854332015548, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: m_Name
       value: Fiend Copy2
@@ -46291,6 +46395,8 @@ GameObject:
   - component: {fileID: 1927636035}
   - component: {fileID: 1927636038}
   - component: {fileID: 1927636037}
+  - component: {fileID: 1927636040}
+  - component: {fileID: 1927636039}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -46337,7 +46443,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -46432,7 +46538,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1927636036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46490,7 +46596,7 @@ MonoBehaviour:
   _IsWallSliding: 0
   _IsStopping: 0
   _IsRunning: 0
-  _Character: {fileID: 0}
+  _Character: {fileID: 1927636038}
   _IsGrounded: 0
   wallSlideGravity: 0.2
   maxWallSlideSpeed: 3
@@ -46517,6 +46623,60 @@ MonoBehaviour:
   dashTimer: 0.2
   _dashTimeLimit: 3
   _InitialVelocity: {x: 0, y: 0}
+--- !u!114 &1927636039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927636029}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10f9215be355ac4585a0906ac086f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 0}
+  _FlinchMovementSpeedMultiplier: 0
+  _FlinchAnimation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: 0
+  _DieAnimation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: 0
+--- !u!114 &1927636040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927636029}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8708707a5e76e4fbac5970899b7459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 0}
+  _Animation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: 0
 --- !u!1 &1992509715
 GameObject:
   m_ObjectHideFlags: 0

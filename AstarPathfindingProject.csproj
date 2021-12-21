@@ -107,8 +107,8 @@
      <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\Example12_Procedural\ProceduralWorld.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyAIPathEditor.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ThreadControlQueue.cs" />
-     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyRVOControllerEditor.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Utilities\DynamicGridObstacle.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyRVOControllerEditor.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Core\Misc\NodeLink3.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Utilities\PathUtilities.cs" />
