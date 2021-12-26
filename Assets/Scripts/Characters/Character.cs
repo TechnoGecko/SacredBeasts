@@ -62,7 +62,7 @@ namespace Characters
         public bool hasDashed;
         [SerializeField, Range(0,2)] public float dashTimer = 0.2f;
 
-        [SerializeField] private float _dashTimeLimit = 3f;
+        [SerializeField] private float _dashTimeLimit = .7f;
         
         public float dashTimeLimit => _dashTimeLimit;
 

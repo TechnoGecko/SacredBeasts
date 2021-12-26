@@ -5,8 +5,8 @@ namespace Characters.States.Jump
     public class WallJumpState : BaseJumpState
     {
     
-        [SerializeField] float wallJumpForce = 40f;
-        [SerializeField] Vector2 wallJumpAngle = new Vector2(5, 33);
+        [SerializeField] float wallJumpForce = 2f;
+        [SerializeField] Vector2 wallJumpAngle = new Vector2(1.6f, 4.5f);
     
         //[SerializeField] private ClipTransition _WallJumpAnimation;
         //public ClipTransition WallJumpAnimation => _WallJumpAnimation;
@@ -35,8 +35,8 @@ namespace Characters.States.Jump
         {
             base.OnEnterState();
             Character.Body.Rigidbody2D.velocity = new Vector2(Character.Body.HorizontalVelocity, 0);
-            Character.Body.Rigidbody2D.AddForce(new Vector2(wallJumpForce * Character.Body.WallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y));
-        
+            Character.Body.Rigidbody2D.AddForce(new Vector2(wallJumpForce * Character.Body.WallJumpDirection * wallJumpAngle.x, wallJumpForce * wallJumpAngle.y ), ForceMode2D.Impulse);
+            Debug.Log("WallJump state entered");
         }
     
     }

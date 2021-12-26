@@ -77,7 +77,5 @@ namespace Characters.States
         }
 
         public override float MovementSpeedMultiplier => 1;
-
-
     }
 }

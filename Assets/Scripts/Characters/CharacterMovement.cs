@@ -18,7 +18,7 @@ namespace Characters
 
         [SerializeField] private float _dashForce = 6f;
 
-        [SerializeField] private float dashSpeed;
+        [SerializeField] private float dashSpeed = 14f;
         
 
         private void FixedUpdate()
