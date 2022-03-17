@@ -1,6 +1,6 @@
 
 # Gnash - Coming to Steam... some day
-An action-platformer being built in Unity. This is a passion project being made between a few friends/updated in free time for now, but we are open to colalborators!
+An action-platformer being built in Unity. This is a passion project being made between a few friends/updated in free time for now, but we are open to collaborators!
 
 ![Gnash Logo](Assets/GnashLogo.jpg)
 
