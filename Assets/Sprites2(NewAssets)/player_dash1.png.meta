@@ -4,25 +4,25 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7845148284096558591
-    second: player_dash1_0
+    second: player_dash_0
   - first:
       213: -4375329421979618534
-    second: player_dash1_1
+    second: player_dash_1
   - first:
       213: 4633871281345979403
-    second: player_dash1_2
+    second: player_dash_2
   - first:
       213: 8785690293047614566
-    second: player_dash1_3
+    second: player_dash_3
   - first:
       213: 1297769578860082524
-    second: player_dash1_4
+    second: player_dash_4
   - first:
       213: 5926509867179801911
-    second: player_dash1_5
+    second: player_dash_5
   - first:
       213: 4502508760019907053
-    second: player_dash1_6
+    second: player_dash_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,15 +112,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_dash1_0
+      name: player_dash_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,15 +133,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_1
+      name: player_dash_1
       rect:
         serializedVersion: 2
         x: 118
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,15 +154,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_2
+      name: player_dash_2
       rect:
         serializedVersion: 2
         x: 236
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,15 +175,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_3
+      name: player_dash_3
       rect:
         serializedVersion: 2
-        x: 354
+        x: 355
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,15 +196,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_4
+      name: player_dash_4
       rect:
         serializedVersion: 2
-        x: 472
+        x: 473
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,15 +217,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_5
+      name: player_dash_5
       rect:
         serializedVersion: 2
-        x: 590
+        x: 587
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,15 +238,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_dash1_6
+      name: player_dash_6
       rect:
         serializedVersion: 2
         x: 708
         y: 0
         width: 118
-        height: 107
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

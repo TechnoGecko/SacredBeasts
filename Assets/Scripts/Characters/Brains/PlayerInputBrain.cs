@@ -66,6 +66,10 @@ namespace Characters.Brains
                 if (_Attack != null && Input.GetButtonDown(_PrimaryAttackButton))
                     Character.StateMachine.TryResetState(_Attack);
 
+                
+                
+                
+                
                 Character.MovementDirection = new Vector2(
                     Input.GetAxisRaw(_XAxisName),
                     Input.GetAxisRaw(_YAxisName));

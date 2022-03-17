@@ -136,27 +136,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jumpattack1-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 0
-        width: 97
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ddd2ba465cd90970800000000000000
-      internalID: 8721744416558210519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: player_jumpattack1-Sheet_2
       rect:
         serializedVersion: 2
@@ -173,27 +152,6 @@ TextureImporter:
       bones: []
       spriteID: c141fe52bae0890f0800000000000000
       internalID: -1110121179908205540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_jumpattack1-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 0
-        width: 97
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a861f69bd16eb860800000000000000
-      internalID: 7547577621277665441
       vertices: []
       indices: 
       edges: []
@@ -278,6 +236,48 @@ TextureImporter:
       bones: []
       spriteID: 56f9dd4242e8e9c50800000000000000
       internalID: 6673927983698124645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_jumpattack1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 97
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddd2ba465cd90970800000000000000
+      internalID: 8721744416558210519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_jumpattack1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 0
+        width: 97
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a861f69bd16eb860800000000000000
+      internalID: 7547577621277665441
       vertices: []
       indices: 
       edges: []

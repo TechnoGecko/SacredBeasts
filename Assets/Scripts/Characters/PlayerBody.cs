@@ -48,6 +48,13 @@ namespace Characters
             }
         }
 
+        private float _WallJumpTimer;
+
+        public float wallJumpTimer => _WallJumpTimer;
+
+        [SerializeField]
+        private float wallJumpDelay = 2.3f;
+
         [SerializeField] private bool _IsStopping;
 
         public bool IsStopping => _IsStopping;
@@ -132,7 +139,7 @@ namespace Characters
             _Velocity = Rigidbody2D.velocity;
             _VerticalVelocity = _Velocity.y;
             _HorizontalVelocity = _Velocity.x;
-            
+
             
         }
 
@@ -202,15 +209,35 @@ namespace Characters
                 rayColorLeft);
 
             _IsTouchingWall = (raycastHitRight.collider || raycastHitLeft.collider);
-            _IsWallSliding = _IsTouchingWall && Velocity.y < 0;
-            if (raycastHitRight.collider && !raycastHitLeft.collider)
+            _IsWallSliding = (_TouchingWallLeft && Input.GetAxis("Horizontal") < 0 ||
+                              _TouchingWallRight && Input.GetAxis("Horizontal") > 0) && Velocity.y < 0;
+
+            if (_IsWallSliding)
+            {
+                _WallJumpTimer = Time.time + wallJumpDelay;
+            }
+                //_IsTouchingWall && Velocity.y < 0;
+            
+                
+                if (raycastHitRight.collider && !raycastHitLeft.collider)
             {
                 _WallJumpDirection = -1;
+                _TouchingWallRight = true;
             }
             else if (raycastHitLeft.collider && !raycastHitRight.collider)
             {
                 _WallJumpDirection = 1;
+                _TouchingWallLeft = true;
             }
+            else
+            {
+                _TouchingWallLeft = false;
+                _TouchingWallRight = false;
+            }
+            
+            
+            
+          //  if(_TouchingWallLeft && _Character.InputDirection)
 
         }
 

@@ -16,10 +16,11 @@ namespace Characters.States.Jump
             get
             {
                 if (Character.Body.IsGrounded ||
-                    !Character.Body.IsTouchingWall )
+                    !Character.Body.IsWallSliding )
                     return false;
-
-                if (Character.Body.IsTouchingWall
+                    
+                
+                if (Character.Body.wallJumpTimer > Time.time
                     && !Character.Body.IsGrounded)
                 {
                     Debug.Log("walljump state enabled");

@@ -43,13 +43,13 @@
   <ItemGroup>
      <None Include="Assets\Plugins\Platformer Game Kit\License.txt" />
      <Reference Include="UnityEngine">
-     <HintPath>C:/Users/Blast Bleat/Desktop/Game Dev/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+     <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.CoreModule">
-     <HintPath>C:/Users/Blast Bleat/Desktop/Game Dev/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+     <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor">
-     <HintPath>C:/Users/Blast Bleat/Desktop/Game Dev/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.dll</HintPath>
+     <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

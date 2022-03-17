@@ -36,12 +36,14 @@ namespace Characters.States
 
                 if (Character.Body.IsWallSliding)
                     return _WallSlide;
-
-                if (!Character.Body.IsGrounded && !Character.Body.IsTouchingWall && _Fall.IsValid)
-                        return _Fall;
-
+                
                 if (Character.dashing && Character.canDash)
                     return _Dash;
+                                                      
+                
+                if (!Character.Body.IsGrounded && !Character.Body.IsTouchingWall && _Fall.IsValid && !Character.dashing)
+                        return _Fall;
+
                 
                 if (Character.MovementDirection.x != 0)
                     return _Run;

@@ -27,6 +27,8 @@ namespace Characters.States
 
         [SerializeField] private float maxWallSlideSpeed = 3f;
 
+        [SerializeField] private float wallPushForce = 0.5f;
+
 #if UNITY_EDITOR
         protected override void OnValidate()
         {
@@ -94,6 +96,22 @@ namespace Characters.States
             if (body.velocity.y < -maxWallSlideSpeed)
             {
                 body.velocity = new Vector2(body.velocity.x, -maxWallSlideSpeed);
+            }
+        }
+
+        public override void OnExitState()
+        {
+            if (Character.Body.TouchingWallLeft && !Character.Brain.IsHoldingJump)
+            {
+                Character.Body.Rigidbody2D.AddForce(new Vector2(wallPushForce,0), ForceMode2D.Impulse);
+                Debug.Log("Wall push from left wall");
+            }
+
+            if (Character.Body.TouchingWallRight && !Character.Brain.IsHoldingJump)
+            { 
+                Character.Body.Rigidbody2D.AddForce(new Vector2(-wallPushForce, 0), ForceMode2D.Impulse);
+                Debug.Log("Wall push from right wall");
+
             }
         }
 
