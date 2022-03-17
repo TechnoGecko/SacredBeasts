@@ -357,6 +357,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
+      propertyPath: _GroundAnimations.Array.data[0]._Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305527306, guid: 6efdcb88bff18a84792a6d2bf38ae476, type: 3}
       propertyPath: _AirAnimations.Array.data[0]._Hits.Array.size
       value: 2
       objectReference: {fileID: 0}
