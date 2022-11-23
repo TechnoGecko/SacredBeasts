@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 97232433}
   - component: {fileID: 4525232901010950613}
   - component: {fileID: 974314329}
+  - component: {fileID: 974314330}
   m_Layer: 7
   m_Name: Fiend Copy2
   m_TagString: Player
@@ -253,6 +254,7 @@ MonoBehaviour:
   _TouchingWallLeft: 0
   _IsTouchingWall: 0
   _IsWallSliding: 0
+  wallJumpDelay: 1
   _IsStopping: 0
   _IsRunning: 0
   _Character: {fileID: 97232423}
@@ -272,15 +274,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Animancer: {fileID: 97232430}
-  _Idle: {fileID: 97232416}
+  _Idle: {fileID: 97232418}
   _Health: {fileID: 97232421}
   _Body: {fileID: 97232422}
   _Brain: {fileID: 97232427}
   dashing: 0
   _canDash: 1
   hasDashed: 0
-  dashTimer: 0.22
-  _dashTimeLimit: 3
+  dashTimer: 0.2
+  _dashTimeLimit: 0.7
   _InitialVelocity: {x: 0, y: 0}
 --- !u!114 &97232433
 MonoBehaviour:
@@ -299,6 +301,7 @@ MonoBehaviour:
   _MaxSpeed: 5
   _FallSpeed: -10
   _dashForce: 6
+  dashSpeed: 14
 --- !u!114 &4525232901010950613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +330,38 @@ MonoBehaviour:
   _Team: {fileID: 11400000, guid: 38984e13079499f45adf6c83a54b7ddd, type: 2}
   _MaximumHealth: 204
   _CurrentHealth: 204
+--- !u!114 &974314330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179228854332015548}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10f9215be355ac4585a0906ac086f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Character: {fileID: 97232423}
+  _FlinchMovementSpeedMultiplier: 0
+  _FlinchAnimation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 390511ca885f9ee4daca0c994f5f296c, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
+  _DieAnimation:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: 0
 --- !u!1 &5232318857620909400
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +421,8 @@ MonoBehaviour:
   _JumpForce: 10.5
   _BootyWeight: 0.7
   _VariableJump: 1.2
-  wallJumpForce: 40
-  wallJumpAngle: {x: 5, y: 33}
+  wallJumpForce: 2
+  wallJumpAngle: {x: 0.7, y: 4.5}
 --- !u!114 &97232425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +543,7 @@ MonoBehaviour:
   _RunFriction: 12
   wallSlideGravity: 0.2
   maxWallSlideSpeed: 3
+  wallPushForce: 0.5
 --- !u!114 &97232416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +608,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 2ab6870d28d0d294e8ed8c3691b34a1b, type: 2}
+    _Clip: {fileID: 7400000, guid: a5ed867018db6144fb685a69faf6a058, type: 2}
     _Speed: 1
     _NormalizedStartTime: 0
 --- !u!1 &9142248041173962940
@@ -648,7 +684,7 @@ MonoBehaviour:
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: 5da778988af2af941a127e26e5f89ab5, type: 2}
-    _Speed: 1
+    _Speed: 1.5
     _NormalizedStartTime: 0
     _Hits:
     - _StartTime: 0.34515634
@@ -668,7 +704,7 @@ MonoBehaviour:
       - {x: 1.1713972, y: 0.20095105}
     - _StartTime: 0.50511
       _EndTime: 0.5837264
-      _Damage: 0
+      _Damage: 5
       _Area:
       - {x: 0.1911485, y: -0.4656182}
       - {x: 0.7743967, y: 0.23525973}
@@ -681,7 +717,23 @@ MonoBehaviour:
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400000, guid: 25293c0f085a1ba4cb3afd17dbc8ea41, type: 2}
-    _Speed: 1
+    _Speed: 1.5
     _NormalizedStartTime: 0
-    _Hits: []
+    _Hits:
+    - _StartTime: 0.4302059
+      _EndTime: 0.504958
+      _Damage: 5
+      _Area:
+      - {x: 0.4780378, y: -0.402235}
+      - {x: 1.007905, y: -0.05209571}
+      - {x: 0.8677867, y: 0.61345464}
+      - {x: 0.17134379, y: 0.84401286}
+    - _StartTime: 0.504958
+      _EndTime: 0.59344006
+      _Damage: 5
+      _Area:
+      - {x: -0.6334592, y: -0.19363245}
+      - {x: -0.2798371, y: -0.7772801}
+      - {x: 0.86818624, y: -0.7651269}
+      - {x: 0.9220999, y: 0.16717508}
   _AirUpAnimations: []

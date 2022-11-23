@@ -145,6 +145,8 @@
      <Compile Include="Assets\Scripts\Behaviour Trees\Leaf Nodes\FuncNode.cs" />
      <Compile Include="Assets\Scripts\Characters\NewCharacter2DController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+     <Compile Include="Assets\Scripts\GameModes\GameState.cs" />
+     <Compile Include="Assets\Scripts\GameModes\GameManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

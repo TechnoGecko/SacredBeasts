@@ -36,12 +36,6 @@ namespace Characters.Brains
         private float _JumpDelay = 0.25f;
 
         
-        
-        
-
-        
-
-        
         private void Update()
         {
             Character.InputDirection = new Vector2(Input.GetAxisRaw(_XAxisName), Input.GetAxisRaw(_YAxisName));
