@@ -20,5 +20,10 @@ namespace GameModes
         {
             // StateMachine.DefaultState = ;
         }
+
+        private void Pause()
+        {
+            //TODO Pause menu logic will go here
+        }
     }
 }
