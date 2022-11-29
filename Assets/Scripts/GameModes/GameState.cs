@@ -3,18 +3,19 @@ using UnityEngine;
 
 namespace GameModes
 {
-    public class GameState : StateBehaviour, IOwnedState<GameState>, IPrioritizable
+    public class GameState : StateBehaviour, IState, IPrioritizable
     {
-        [SerializeField] private GameManager _gameManager;
-        public GameManager gameManager => _gameManager;
+        [SerializeField] private LevelManager _levelManager;
+        public LevelManager levelManager => _levelManager;
 
-        public StateMachine<GameState> OwnerStateMachine => _gameManager.StateMachine;
+        //public StateMachine<GameState> OwnerStateMachine => _levelManager.StateMachine;
 
         private IPrioritizable _prioritize;
     
         public virtual float Priority { get; }
 
-        
+        public virtual string sceneName => "";
+
     }
 }
 

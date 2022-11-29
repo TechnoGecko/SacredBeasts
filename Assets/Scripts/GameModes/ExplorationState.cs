@@ -1,19 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameModes
 {
-    public class ExplorationState : MonoBehaviour
+    public class ExplorationState : GameState
     {
-        // Start is called before the first frame update
-        void Start()
+        public override string sceneName => "Exploration";
+        public override void OnEnterState()
         {
-        
+            base.OnEnterState();
+            SceneManager.LoadSceneAsync(sceneName);
+
         }
 
-        // Update is called once per frame
-        void Update()
+        public override void OnExitState()
         {
-        
+            base.OnExitState();
         }
     }
 }

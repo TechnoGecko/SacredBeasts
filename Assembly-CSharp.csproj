@@ -103,7 +103,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\Scripts\Behaviour Trees\Group Nodes\Selector.cs" />
-     <Compile Include="Assets\Scripts\GameModes\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameModes\LevelManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\Scripts\Utilities\Context.cs" />
      <Compile Include="Assets\Scripts\Characters\States\LandState.cs" />
